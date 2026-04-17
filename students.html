@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>طلاب النبلاء</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* 🔷 الهيدر */
+header {
+    background: #bb9d84;
+    color: white;
+    padding: 20px;
+}
+
+header img {
+    width: 340px; /* يمكن تغيير الحجم */
+}
+
+header #schoolName {
+    font-size: 45px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* عنوان الصفحة */
+.page-title {
+    font-size: 60px;
+    font-weight: bold;
+    margin: 40px 0 30px 0;
+    color: #bb9d84;
+}
+
+/* شبكة الصور */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+}
+
+.gallery img {
+    width: 280px;  /* حجم مناسب لثلاث أعمدة */
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* تكبير الصور */
+#overlay {
+    display: none;
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+}
+#overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- 🔷 الهيدر -->
+<header>
+    <img src="nobles.png" alt="شعار المدرسة">
+    <div id="schoolName">ثانوية النبلاء النموذجية للبنين</div>
+</header>
+
+<!-- 🔷 عنوان الصفحة -->
+<div class="page-title">طلاب النبلاء</div>
+
+<!-- 🔷 شبكة الصور 3x3 -->
+<div class="gallery">
+    <img src="1.jpg" onclick="zoom(this)">
+    <img src="2.jpg" onclick="zoom(this)">
+    <img src="3.jpg" onclick="zoom(this)">
+    <img src="4.jpg" onclick="zoom(this)">
+    <img src="5.jpg" onclick="zoom(this)">
+    <img src="6.jpg" onclick="zoom(this)">
+    <img src="7.jpg" onclick="zoom(this)">
+    <img src="8.jpg" onclick="zoom(this)">
+    <img src="9.jpg" onclick="zoom(this)">
+</div>
+
+<!-- 🔷 تكبير الصور عند الضغط -->
+<div id="overlay" onclick="closeZoom()">
+    <img id="zoomImg">
+</div>
+
+<script>
+function zoom(img){
+    document.getElementById("overlay").style.display = "flex";
+    document.getElementById("zoomImg").src = img.src;
+}
+
+function closeZoom(){
+    document.getElementById("overlay").style.display = "none";
+}
+</script>
+
+</body>
+<!-- 🔷 الفوتر -->
+<footer style="background:#bb9d84; color:white; padding:20px; text-align:center; font-family:Arial, sans-serif;">
+    <!-- شعار صغير -->
+    <img src="Nobles.png" alt="شعار المدرسة" style="width:60px; display:block; margin:0 auto 10px auto;">
+
+    <!-- الحقوق -->
+    <p style="margin:5px; font-size:16px;">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
+
+    <!-- العبارة الجميلة -->
+    <p style="margin:5px; font-size:18px; font-weight:bold;">بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
+</footer>
+</html>
