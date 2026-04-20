@@ -5,7 +5,7 @@
 <title>فعاليات النبلاء - معارض الحاسوب</title>
 
 <style>
-/* 👈 الأساسيات (مطابقة للرئيسية) */
+/* 👈 الأساسيات */
 body {
     margin: 0;
     font-family: 'Times New Roman', serif;
@@ -14,7 +14,7 @@ body {
     background-color: #f4f4f4;
 }
 
-/* 🔷 الهيدر (مطابق للرئيسية 100% وبدون زر القائمة) */
+/* 🔷 الهيدر */
 header {
     background: #bb9d84;
     color: white;
@@ -31,60 +31,75 @@ header img.logo {
 }
 
 header h1 {
-    font-size: 35px; /* 👈 تم التوحيد مع الرئيسية */
+    font-size: 35px;
     font-weight: bold;
     margin: 10px 0 0 0;
 }
 
-/* 🎥 الفيديو */
-.video-container {
-    width: 100%;
+/* 🏗️ الحاوية الرئيسية للأقسام */
+.main-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* 📦 صف القسم (محتوى مرئي + نص) */
+.section-row {
     display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.video {
-    width: 90%;
-    max-width: 1100px;
-    height: auto;
-    max-height: 600px;
-    background: black;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-/* 🔷 مربع النص */
-.box {
-    margin: 40px auto 60px auto;
-    width: 85%;
-    max-width: 900px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 60px;
     background: #ffffff;
-    padding: 35px;
+    padding: 25px;
     border-radius: 15px;
-    text-align: right;
-    direction: rtl;
-    line-height: 1.8;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     border-right: 8px solid #bb9d84;
 }
 
-/* 🔥 عنوان داخل مربع النص */
+/* عكس الاتجاه للأقسام الزوجية لإعطاء شكل جمالي */
+.section-row:nth-child(even) {
+    flex-direction: row-reverse;
+    border-right: none;
+    border-left: 8px solid #bb9d84;
+}
+
+/* 🖼️ تنسيق المحتوى المرئي (فيديو أو صورة) */
+.media-wrapper {
+    flex: 1;
+    min-width: 300px;
+}
+
+.media-wrapper video, .media-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    background: black;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    object-fit: cover;
+}
+
+/* 📝 تنسيق المحتوى النصي */
+.text-wrapper {
+    flex: 1;
+    text-align: right;
+}
+
 .box-title {
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bold;
     color: #bb9d84;
-    text-align: right;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .box-content {
-    font-size: 28px;
+    font-size: 24px;
     color: #333;
+    line-height: 1.6;
     text-align: justify;
 }
 
-/* 🔷 الفوتر (مطابق للرئيسية) */
+/* 🔷 الفوتر */
 footer {
     background: #bb9d84;
     color: white;
@@ -97,6 +112,17 @@ footer img {
     display: block;
     margin: 0 auto 10px auto;
 }
+
+/* 📱 التوافق مع الجوال */
+@media (max-width: 850px) {
+    .section-row, .section-row:nth-child(even) {
+        flex-direction: column;
+        text-align: center;
+    }
+    .text-wrapper {
+        text-align: center;
+    }
+}
 </style>
 
 </head>
@@ -108,21 +134,53 @@ footer img {
     <h1>ثانوية النبلاء النموذجية للبنين</h1>
 </header>
 
-<div style="height:20px;"></div>
+<div class="main-content">
 
-<div class="video-container">
-    <video class="video" controls>
-        <source src="SD.mp4" type="video/mp4">
-        متصفحك لا يدعم تشغيل الفيديو
-    </video>
-</div>
-
-<div class="box">
-    <div class="box-title">معارض الحاسوب</div>
-    <div class="box-content">
-        شاركت ثانوية النبلاء النموذجية في عدة معارض للحاسوب وآخرها في العام الدراسي الماضي 2024/2025 وحصدت المركز الأول.  
-        أنشأ طلاب النبلاء مشاريع مميزة وكانت هذه المشاريع بإشراف أستاذ مادة الحاسوب الأستاذ سجاد وإعلام ثانوية النبلاء النموذجية.
+    <div class="section-row">
+        <div class="media-wrapper">
+            <video controls>
+                <source src="SD.mp4" type="video/mp4">
+                متصفحك لا يدعم تشغيل الفيديو
+            </video>
+        </div>
+        <div class="text-wrapper">
+            <div class="box-title">معارض الحاسوب</div>
+            <div class="box-content">
+                شاركت ثانوية النبلاء النموذجية في عدة معارض للحاسوب وآخرها في العام الدراسي الماضي 2024/2025 وحصدت المركز الأول. أنشأ طلاب النبلاء مشاريع مميزة بإشراف الأستاذ سجاد وإعلام المدرسة.
+            </div>
+        </div>
     </div>
+
+    <div class="section-row">
+        <div class="media-wrapper">
+            <video controls>
+                <source src="بسم الله الرحمن الرحيم بحمد الله وتوفيقه، أُجريت اليوم في ثانوية النبلاء النموذجية ال.mp4" type="video/mp4">
+                متصفحك لا يدعم تشغيل الفيديو
+            </video>
+        </div>
+        <div class="text-wrapper">
+            <div class="box-title">مسابقات الرياضيات</div>
+            <div class="box-content">
+          اقامت ثانوية النبلاء عدة مسابقات للرياضيات لغرض الكشف عن ابداع الطلاب خارج ورقة روتين الامتحانات المتعارف ولذا اقام الاستاذ علي جبر مدرس مادة الرياضيات للصف الخامس العلمي مسابقات رياضيات وبحضور ادارة واعلام المدرسة ولجنة الرياضيات 
+            </div>
+        </div>
+    </div>
+
+    <div class="section-row">
+        <div class="media-wrapper">
+            <img src="Mm.jpg" alt="فعاليات النبلاء">
+        </div>
+        <div class="text-wrapper">
+            <div class="box-title">مسابقة اللغة الانكليزية </div>
+            <div class="box-content">
+            أقامت ثانوية النبلاء النموذجية مسابقة داخلية في مادة اللغة الإنكليزية، وذلك ضمن سعيها المستمر لتعزيز مهارات الطلبة اللغوية وتنمية قدراتهم العلمية.
+وشهدت المسابقة حضور السيدة نادية سعد نعمة، مسؤولة شعبة الثقافة والفنون في مديرية الشباب والرياضة/مدينة الصدر، التي أشادت بجهود إدارة المدرسة والملاك التدريسي في تنظيم مثل هذه الفعاليات الهادفة. كما جرت المنافسات بإشراف مباشر من أساتذة اللغة الإنكليزية، الذين حرصوا على توفير أجواء تنافسية إيجابية بين الطلبة.
+وتأتي هذه المبادرة في إطار دعم الأنشطة اللاصفية، وتشجيع الطلبة على تطوير مهاراتهم في اللغة الإنكليزية بما يسهم في رفع مستواهم العلمي
+اعلام الثانوية
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <footer>
