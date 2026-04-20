@@ -46,7 +46,7 @@ header h1 {
 
 /* 🔹 القائمة المنسدلة */
 .fullscreen-menu {
-    display: none; /* تم التأكد من بقائها مخفية عند التحميل */
+    display: none; 
     position: fixed;
     top: 0;
     right: 0;
@@ -178,12 +178,12 @@ footer p {
 <div class="fullscreen-menu" id="fullscreenMenu" style="display: none;">
     <div class="close-btn" onclick="toggleMenu()">×</div>
     <div class="menu-box">
-        <a href="school.html">ثانويتنا</a>
         <a href="newspaper.html">جريدة النبلاء</a>
         <a href="students.html">طلابنا</a>
+        <a href="school.html">ثانويتنا</a>
         <a href="tamima.html">التميمة</a>
-        <a href="activities.html">نشاطات النبلاء</a>
-        <a href="fashion.html">أزياء النبلاء</a>
+        <a href="activities.html">فعاليات النبلاء</a>
+        <a href="fashion.html">دليل الازياء</a>
     </div>
 </div>
 
@@ -260,7 +260,6 @@ footer p {
 <script>
 function toggleMenu() {
     const menu = document.getElementById("fullscreenMenu");
-    // التحقق من الحالة الحالية لضمان التبديل الصحيح
     if (menu.style.display === "flex") {
         menu.style.display = "none";
     } else {
@@ -268,10 +267,8 @@ function toggleMenu() {
     }
 }
 
-// إغلاق عند الضغط خارج القائمة
 window.onclick = function(event) {
     const menu = document.getElementById("fullscreenMenu");
-    const btn = document.querySelector(".menu-btn");
     if (event.target === menu) {
         menu.style.display = "none";
     }
