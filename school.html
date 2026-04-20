@@ -2,77 +2,92 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>ثانويتنا</title>
+<title>ثانويتنا - ثانوية النبلاء</title>
 
 <style>
+/* 👈 الأساسيات */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', serif;
+    font-size: 25px;
     text-align: center;
+    background-color: #f4f4f4;
 }
 
-/* 🔷 الهيدر (نفسه) */
+/* 🔷 الهيدر (مطابق للرئيسية 100%) */
 header {
     background: #bb9d84;
     color: white;
     padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-header img {
-    width: 340px;
+header img.logo {
+    width: 350px;
+    height: auto;
 }
 
-header #schoolName {
-    font-size: 45px;
+header h1 {
+    font-size: 35px;
+    margin: 10px 0 0 0;
     font-weight: bold;
-    margin-top: 10px;
 }
 
-/* 🔷 عنوان الصفحة */
-.page-title {
-    font-size: 60px;
-    font-weight: bold;
-    margin: 40px 0 30px 0;
-    color: #bb9d84;
-}
-
-/* 🔷 الفيديو */
+/* 🔷 الفيديو (تمت إعادته للشكل المطلوب) */
 .video-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
+    margin: 60px 0 40px 0;
 }
 
 video {
     width: 80%;
     max-width: 950px;
     border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* 🔷 مربع النص */
 .text-box {
-    width: 80%;
+    width: 85%;
     max-width: 900px;
-    margin: auto;
+    margin: 40px auto 60px auto;
     background: #fff;
-    padding: 25px;
-    border-radius: 12px;
+    padding: 35px;
+    border-radius: 15px;
     text-align: right;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-right: 8px solid #bb9d84;
 }
 
-/* 🔥 التحكم بحجم العنوان */
 .text-title {
-    font-size: 32px; /* 🔺 غيّر الرقم هنا */
+    font-size: 36px; 
     font-weight: bold;
     color: #bb9d84;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-/* 🔥 التحكم بحجم النص */
 .text-content {
-    font-size: 30px; /* 🔺 غيّر الرقم هنا */
-    line-height: 1.9;
+    font-size: 28px; 
+    line-height: 1.8;
+    color: #333;
+}
+
+/* 🔷 الفوتر */
+footer {
+    background: #bb9d84;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer img {
+    width: 60px;
+    display: block;
+    margin: 0 auto 10px auto;
 }
 </style>
 
@@ -80,40 +95,30 @@ video {
 
 <body>
 
-<!-- 🔷 الهيدر -->
 <header>
-    <img src="Nobles.png" alt="شعار المدرسة">
-    <div id="schoolName">ثانوية النبلاء النموذجية للبنين</div>
+    <img src="Nobles.png" class="logo" alt="شعار المدرسة">
+    <h1>ثانوية النبلاء النموذجية للبنين</h1>
 </header>
-<div style="height:60px;"></div>
 
-<!-- 🔷 الصورة -->
+<div class="video-container">
     <video controls>
         <source src="YouCut_20260418_025005640.mp4" type="video/mp4">
         المتصفح الخاص بك لا يدعم الفيديو.
     </video>
 </div>
 
-<!-- 🔷 مربع النص -->
 <div class="text-box">
-
-    <div class="text-title">
-        ثانويتنا
-    </div>
-
+    <div class="text-title">ثانويتنا</div>
     <div class="text-content">
         تأسست ثانوية النبلاء النموذجية للبنين عام 2021، لتكون منارة تعليمية تسعى إلى التميز الأكاديمي وبناء جيل واعٍ ومثقف. تضم المدرسة نخبة من الكوادر التدريسية من أصحاب الشهادات العليا والخبرات المتميزة، وتستقبل طلبة يتمتعون بالكفاءة والطموح، مما يخلق بيئة تعليمية متكاملة قائمة على الإبداع والانضباط. وتسعى المدرسة إلى ترسيخ القيم التربوية وتنمية مهارات الطلبة العلمية والسلوكية، بما يحقق لهم التفوق ويرتقي بهم نحو مستقبل مشرق.
     </div>
-
 </div>
 
-</body>
-
-<!-- 🔷 الفوتر -->
-<footer style="background:#bb9d84; color:white; padding:20px; text-align:center; font-family:Arial, sans-serif;">
-    <img src="Nobles.png" alt="شعار المدرسة" style="width:60px; display:block; margin:0 auto 10px auto;">
-    <p style="margin:5px; font-size:16px;">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
-    <p style="margin:5px; font-size:18px; font-weight:bold;">بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
+<footer>
+    <img src="Nobles.png" alt="شعار المدرسة">
+    <p>جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
+    <p>بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
 </footer>
 
+</body>
 </html>

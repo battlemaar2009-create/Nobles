@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>دليل الأزياء - ثانوية النبلاء</title>
+
+<style>
+/* ⚙️ إعدادات التحكم المنفصلة (الأغلفة والصور) */
+:root {
+    /* --- الجانب الأيمن (زي المتوسطة) --- */
+    --right-wrapper-width: 485px;  /* عرض الغلاف */
+    --right-wrapper-height: 800px; /* طول الغلاف */
+    --right-image-scale: 1.0;      /* حجم الصورة (1.0 هو الطبيعي، 1.2 تكبير، 0.8 تصغير) */
+
+    /* --- الجانب الأيسر (زي الإعدادية) --- */
+    --left-wrapper-width: 485px;   /* عرض الغلاف */
+    --left-wrapper-height: 800px;  /* طول الغلاف */
+    --left-image-scale: 1.0;       /* حجم الصورة (1.0 هو الطبيعي، 1.2 تكبير، 0.8 تصغير) */
+}
+
+/* 👈 الأساسيات */
+body {
+    margin: 0;
+    font-family: 'Times New Roman', serif;
+    font-size: 25px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+/* 🔷 الهيدر */
+header {
+    background: #bb9d84;
+    color: white;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header img.logo {
+    width: 350px;
+    height: auto;
+}
+
+header h1 {
+    font-size: 35px;
+    margin: 10px 0 5px 0;
+}
+
+/* 🔹 عنوان دليل الأزياء */
+.guide-title {
+    font-size: 45px;
+    color: #333;
+    margin: 40px 0 20px 0;
+    font-weight: bold;
+    text-decoration: underline #bb9d84;
+    display: block;
+}
+
+/* 🔹 القائمة المنسدلة */
+.menu-btn {
+    font-size: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    user-select: none;
+}
+
+.fullscreen-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(187,157,132,0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-box {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+}
+
+.fullscreen-menu a {
+    font-size: 25px;
+    color: #000000;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+/* 👔 قسم عرض الأزياء */
+.fashion-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 60px;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.fashion-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 🖼️ غلاف الصورة اليمنى */
+.right-wrapper {
+    width: var(--right-wrapper-width);
+    height: var(--right-wrapper-height);
+    border-radius: 25px;
+    overflow: hidden; /* يمنع خروج الصورة المكبرة عن الحدود */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border: 4px solid #bb9d84;
+    background-color: #fff;
+    position: relative;
+}
+
+/* 🖼️ غلاف الصورة اليسرى */
+.left-wrapper {
+    width: var(--left-wrapper-width);
+    height: var(--left-wrapper-height);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border: 4px solid #bb9d84;
+    background-color: #fff;
+    position: relative;
+}
+
+/* 📸 تحكم منفصل في الصور داخل الأغلفة */
+.right-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* يحافظ على أبعاد الصورة كاملة */
+    transform: scale(var(--right-image-scale));
+}
+
+.left-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(var(--left-image-scale));
+}
+
+.uniform-label {
+    margin-top: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #bb9d84;
+    background: white;
+    padding: 5px 30px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 🔷 الفوتر */
+footer {
+    background: #bb9d84;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer img {
+    width: 60px;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <img src="Nobles.png" class="logo">
+    <h1>ثانوية النبلاء النموذجية للبنين</h1>
+</header>
+
+<div class="guide-title">دليل الازياء</div>
+
+<div class="fullscreen-menu" id="fullscreenMenu">
+    <div class="menu-box">
+        <div style="cursor:pointer; font-size:40px; align-self:flex-start;" onclick="toggleMenu()">×</div>
+        <a href="index.html">الرئيسية</a>
+        <a href="school.html">ثانويتنا</a>
+        <a href="newspaper.html">جريدة النبلاء</a>
+        <a href="fashion.html">أزياء النبلاء</a>
+    </div>
+</div>
+
+<div class="fashion-container">
+    <div class="fashion-card">
+        <div class="right-wrapper">
+            <img src="Fashion2.png" alt="زي المتوسطة">
+        </div>
+        <div class="uniform-label">زي المتوسطة</div>
+    </div>
+
+    <div class="fashion-card">
+        <div class="left-wrapper">
+            <img src="Fashion.png" alt="زي الإعدادية">
+        </div>
+        <div class="uniform-label">زي الإعدادية</div>
+    </div>
+</div>
+
+<footer>
+    <img src="Nobles.png" alt="شعار المدرسة">
+    <p>جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
+    <p>بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
+</footer>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("fullscreenMenu");
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+}
+</script>
+
+</body>
+</html>

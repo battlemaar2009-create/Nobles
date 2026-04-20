@@ -2,46 +2,55 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>تميمة النبلاء</title>
+<title>تميمة النبلاء - ثانوية النبلاء</title>
 
 <style>
+/* 👈 الأساسيات (مطابقة للرئيسية) */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', serif;
+    font-size: 25px;
     text-align: center;
+    background-color: #f4f4f4;
     line-height: 1.6;
 }
 
-/* 🔷 الهيدر */
+/* 🔷 الهيدر (مطابق للرئيسية 100% وبدون زر القائمة) */
 header {
     background: #bb9d84;
     color: white;
     padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-header img {
-    width: 340px; /* حجم الشعار */
+header img.logo {
+    width: 350px;
+    height: auto;
 }
 
-header #schoolName {
-    font-size: 45px;
+header h1 {
+    font-size: 35px;
+    margin: 10px 0 0 0;
     font-weight: bold;
-    margin-top: 10px;
 }
 
 /* 🔷 العنوان */
 .page-title {
-    font-size: 36px;
+    font-size: 45px;
     font-weight: bold;
-    margin: 40px 0 10px 0;
+    margin: 40px 0 5px 0;
     color: #bb9d84;
 }
 
 .page-title-en {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: normal;
     margin-bottom: 30px;
-    color: #555;
+    color: #777;
+    font-family: Arial, sans-serif;
 }
 
 /* 🔷 الفيديو */
@@ -53,78 +62,91 @@ header #schoolName {
 
 video {
     width: 80%;
-    max-width: 600px;
+    max-width: 650px;
     border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
+
+/* 🔷 مربع النص */
 .text-box {
-    background: #f9f9f9;
+    background: #ffffff;
     margin: 0 auto 50px auto;
     max-width: 900px;
-    padding: 25px;
-    border-radius: 12px;
+    padding: 35px;
+    border-radius: 15px;
     text-align: right;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-right: 8px solid #bb9d84;
 }
 
 .text-box h2 {
-    font-size: 28px;
-    margin-bottom: 15px;
+    font-size: 32px;
+    margin-bottom: 20px;
     color: #bb9d84;
+    font-weight: bold;
 }
 
 .text-box p {
-    font-size: 25px;
+    font-size: 26px;
     text-align: justify;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* 🔷 الفوتر (مطابق للرئيسية) */
+footer {
+    background: #bb9d84;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer img {
+    width: 60px;
+    display: block;
+    margin: 0 auto 10px auto;
 }
 </style>
 
 </head>
 <body>
 
-<!-- 🔷 الهيدر -->
 <header>
-    <img src="nobles.png" alt="شعار المدرسة">
-    <div id="schoolName">ثانوية النبلاء النموذجية للبنين</div>
+    <img src="Nobles.png" class="logo" alt="شعار المدرسة">
+    <h1>ثانوية النبلاء النموذجية للبنين</h1>
 </header>
 
-<!-- 🔷 العنوان -->
 <div class="page-title">تميمة النبلاء</div>
 <div class="page-title-en">Nobles Talisman</div>
 
-<!-- 🔷 الفيديو -->
 <div class="video-container">
-    <!-- تأكد أن اسم الفيديو مطابق بالضبط لمجلد الصفحة -->
     <video controls>
         <source src="Talisman.mp4" type="video/mp4">
         المتصفح الخاص بك لا يدعم الفيديو.
     </video>
 </div>
 
-<!-- 🔷 مربع النص -->
 <div class="text-box">
     <h2>فكرة التميمة</h2>
     <p>
-    اصدرت ثانوية النبلاء بخطوة غير مسبوقة وغير مطروقة، اصدرت تميمة مدرسية وهي فكرة غير متعارفة على المستوى التعليمي التربوي.
-    فكرة التميمة تأتي تبعًا لأستخدامها شعارًا للمحافل الاخرى خلال السنة التي اقيم بها المحفل وهي ذات الفكرة التي أنشأتها ثانوية النبلاء خلال عام 2025/2026 الدراسي الذي انشأت به تميمة تحمل شعار العام الدراسي وشعار المدرسة وتتغير في كل عام دراسي وتكون فصلية.
+    أصدرت ثانوية النبلاء بخطوة غير مسبوقة وغير مطروقة، تميمة مدرسية وهي فكرة غير متعارف عليها على المستوى التعليمي التربوي.
+    فكرة التميمة تأتي تبعاً لاستخدامها شعاراً للمحافل الأخرى خلال السنة التي أقيم بها المحفل، وهي ذات الفكرة التي أنشأتها ثانوية النبلاء خلال عام 2025/2026 الدراسي الذي أنشأت به تميمة تحمل شعار العام الدراسي وشعار المدرسة وتتغير في كل عام دراسي وتكون فصلية.
     <br><br>
-    فكرة التميمة للعام الأول من اطلاقها 2025/2026 هي تمثيلا للنبل والنبلاء فأصبحت التميمة لهذا العام هي نسر يحمل خطوط ذهبية مرفرفًا جناحيه. ويأتي هنا شعار النسر دلالة على كونه شعارًا للنبل والتصرفات النبيلة فالنسر يرتقي فوق الغيم تجنبًا للمطر وهذه من تصرفاته الملفتة والتي تعد دلالة للنبل.
+    فكرة التميمة للعام الأول من إطلاقها 2025/2026 هي تمثيلاً للنبل والنبلاء فأصبحت التميمة لهذا العام هي نسر يحمل خطوطاً ذهبية مرفرفاً جناحيه. ويأتي هنا شعار النسر دلالة على كونه شعاراً للنبل والتصرفات النبيلة، فالنسر يرتقي فوق الغيم تجنباً للمطر وهذه من تصرفاته الملفتة والتي تعد دلالة للنبل.
     <br><br>
-    ويأتي هنا اشتقاق ثانوية النبلاء تصرف الطلاب من تصرف النسر حيث أن الارتقاء بأنواعه هو دلالة نبيلة سواء الارتقاء فوق المطر أو الارتقاء فوق الجهل وجاء من هنا شعار التميمة.
+    ويأتي هنا اشتقاق ثانوية النبلاء تصرف الطلاب من تصرف النسر حيث أن الارتقاء بأنواعه هو دلالة نبيلة سواء الارتقاء فوق المطر أو الارتقاء فوق الجهل، وجاء من هنا شعار التميمة.
     <br><br>
-    "النبلاء دومًا يرتقون عاليًا" فكرة وانتاج وتصميم الطالب: عمار جاسم محمد
+    <strong>"النبلاء دوماً يرتقون عالياً"</strong><br>
+    فكرة وإنتاج وتصميم الطالب: عمار جاسم محمد
     </p>
 </div>
 
-</body>
-<!-- 🔷 الفوتر -->
-<footer style="background:#bb9d84; color:white; padding:20px; text-align:center; font-family:Arial, sans-serif;">
-    <!-- شعار صغير -->
-    <img src="Nobles.png" alt="شعار المدرسة" style="width:60px; display:block; margin:0 auto 10px auto;">
-
-    <!-- الحقوق -->
-    <p style="margin:5px; font-size:16px;">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
-
-    <!-- العبارة الجميلة -->
-    <p style="margin:5px; font-size:18px; font-weight:bold;">بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
+<footer>
+    <img src="Nobles.png" alt="شعار المدرسة">
+    <p>جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
+    <p>بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
 </footer>
+
+</body>
 </html>

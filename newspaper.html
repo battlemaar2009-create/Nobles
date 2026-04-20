@@ -5,39 +5,58 @@
 <title>جريدة النبلاء</title>
 
 <style>
+/* 👈 الأساسيات */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', serif;
+    font-size: 25px;
     text-align: center;
+    background-color: #f4f4f4;
 }
 
-/* 🔷 الهيدر */
+/* 🔷 الهيدر (مطابق للرئيسية بدون زر القائمة) */
 header {
     background: #bb9d84;
     color: white;
     padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-header img {
+header img.logo {
     width: 350px;
+    height: auto;
 }
 
-/* 🔷 العناوين الرئيسية */
-.title {
-    margin: 25px 0;
-    font-size: 26px;
+header h1 {
+    font-size: 35px;
+    margin: 10px 0 0 0;
+}
+
+/* 🔷 تنسيقات الجريدة */
+.issue-box {
+    display: block;
+    background: #bb9d84;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 14px;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 60px auto 25px auto;
+    width: fit-content;
+    text-align: center;
     cursor: pointer;
     transition: 0.3s;
-    display: inline-block;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
-<div style="height:60px;"></div>
-
-.title:hover {
+.issue-box:hover {
     transform: scale(1.05);
+    background: #a8846f;
 }
 
-/* 🔷 صور العدد الأول */
 .zoom-img {
     width: 250px;
     margin: 10px;
@@ -46,25 +65,17 @@ header img {
     transition: 0.3s;
 }
 
-.zoom-img:hover {
-    transform: scale(1.05);
+.zoom-img:hover { 
+    transform: scale(1.05); 
 }
 
-/* 🔷 الفيديو */
-video {
-    width: 80%;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-
-/* 🔷 صورة مفردة */
 .single-img {
     width: 300px;
     border-radius: 10px;
     margin-top: 20px;
 }
 
-/* 🔷 تكبير الصور والعناوين */
+/* 🔷 نافذة التكبير */
 #overlay {
     position: fixed;
     top: 0;
@@ -76,20 +87,34 @@ video {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    z-index: 2000;
 }
 
-/* الصورة المكبرة */
 #overlay img {
     max-width: 90%;
     max-height: 80%;
     border-radius: 10px;
 }
 
-/* العنوان المكبر */
 #overlay h2 {
     color: white;
     margin-top: 20px;
     font-size: 28px;
+}
+
+/* 🔷 الفوتر */
+footer {
+    background: #bb9d84;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+footer img {
+    width: 60px;
+    display: block;
+    margin: 0 auto 10px auto;
 }
 </style>
 
@@ -97,93 +122,43 @@ video {
 
 <body>
 
-<!-- 🔷 الهيدر -->
 <header>
-    <img src="Nobles.png" alt="شعار المدرسة">
+    <img src="Nobles.png" class="logo" alt="شعار المدرسة">
     <h1>ثانوية النبلاء النموذجية للبنين</h1>
 </header>
 
-<!-- 🔷 العدد الأول -->
 <div class="issue-box">
     📰 العدد الأول - N (1)
-<style>
- .issue-box {
-    display: block;
-    background: #bb9d84;
-    color: white;
-
-    padding: 14px 30px;
-    border-radius: 14px;
-
-    font-size: 22px;
-    font-weight: bold;
-
-    margin: 60px auto 25px auto; /* 👈 هذا المهم */
-    width: fit-content;          /* 👈 يخليه بحجم المحتوى */
-    text-align: center;
-
-    cursor: pointer;
-    transition: 0.3s;
-
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-.issue-box:hover {
-    transform: scale(1.05);
-    background: #a8846f;
-}
-</style>
-
 </div>
-<div style="margin-top:30px;"></div>
+
+<div style="margin-top:30px;">
     <img src="IMG_20260417_192922_914.png" class="zoom-img" onclick="zoomImage(this)">
     <img src="IMG_20260417_192505_522.png" class="zoom-img" onclick="zoomImage(this)">
     <img src="IMG_20260417_192808_461.png" class="zoom-img" onclick="zoomImage(this)">
     <img src="IMG_20260417_193021_908.png" class="zoom-img" onclick="zoomImage(this)">
     <img src="IMG_20260417_193002_711.png" class="zoom-img" onclick="zoomImage(this)">
     <img src="IMG_20260417_192944_673.png" class="zoom-img" onclick="zoomImage(this)">
-
-<div style="height:60px;"></div>
+</div>
 
 <div class="issue-box" onclick="zoomText(this)" style="margin-top:90px;">
-    العدد الثاني - N (2)
+    📰 العدد الثاني - N (2)
 </div>
-<style>
-.issue-box {
-    display: inline-block;
-    background: #bb9d84;   /* لون مميز */
-    color: white;
-    padding: 12px 25px;
-    border-radius: 120px;
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 20px 0;
-    transition: 0.3s;
-    margin-top: 40px
-    ;
-}
 
-.issue-box:hover {
-    transform: scale(1.05);
-    background: #a8846f;  /* لون عند المرور */
-}
-</style>
 <div>
-
- 
-    <div>
-        <img src="SAVE_20260417_170539.jpg" class="single-img" onclick="zoomImage(this)">
-    </div>
-
+    <img src="SAVE_20260417_170539.jpg" class="single-img" onclick="zoomImage(this)">
 </div>
 
-<!-- 🔷 نافذة التكبير -->
 <div id="overlay" onclick="closeZoom()">
     <img id="zoomedImg">
     <h2 id="zoomText"></h2>
 </div>
 
-<!-- 🔷 JavaScript -->
+<footer>
+    <img src="Nobles.png" alt="شعار المدرسة">
+    <p>جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
+    <p>بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
+</footer>
+
 <script>
 function zoomImage(img) {
     document.getElementById("overlay").style.display = "flex";
@@ -201,17 +176,6 @@ function closeZoom() {
     document.getElementById("overlay").style.display = "none";
 }
 </script>
-<div style="height:60px;"></div>
+
 </body>
-<!-- 🔷 الفوتر -->
-<footer style="background:#bb9d84; color:white; padding:20px; text-align:center; font-family:Arial, sans-serif;">
-    <!-- شعار صغير -->
-    <img src="Nobles.png" alt="شعار المدرسة" style="width:60px; display:block; margin:0 auto 10px auto;">
-
-    <!-- الحقوق -->
-    <p style="margin:5px; font-size:16px;">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
-
-    <!-- العبارة الجميلة -->
-    <p style="margin:5px; font-size:18px; font-weight:bold;">بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
-</footer>
 </html>

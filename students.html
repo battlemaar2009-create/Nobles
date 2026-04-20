@@ -5,61 +5,72 @@
 <title>طلاب النبلاء</title>
 
 <style>
+/* 👈 الأساسيات (مطابقة للرئيسية) */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', serif;
+    font-size: 25px;
     text-align: center;
+    background-color: #f4f4f4;
 }
 
-/* 🔷 الهيدر */
+/* 🔷 الهيدر (مطابق للرئيسية بالضبط بدون زر القائمة) */
 header {
     background: #bb9d84;
     color: white;
     padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-header img {
-    width: 340px; /* يمكن تغيير الحجم */
+header img.logo {
+    width: 350px;
+    height: auto;
 }
 
-header #schoolName {
-    font-size: 45px;
-    font-weight: bold;
-    margin-top: 10px;
+header h1 {
+    font-size: 35px;
+    margin: 10px 0 0 0;
 }
 
-/* عنوان الصفحة */
+/* 🔹 عنوان الصفحة */
 .page-title {
     font-size: 60px;
     font-weight: bold;
     margin: 40px 0 30px 0;
     color: #bb9d84;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-/* شبكة الصور */
+/* 🖼️ شبكة الصور */
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto 50px auto;
+    padding: 0 20px;
 }
 
 .gallery img {
-    width: 280px;  /* حجم مناسب لثلاث أعمدة */
+    width: 280px; 
     height: 380px;
     object-fit: cover;
     border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .gallery img:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* تكبير الصور */
+/* 🔍 تكبير الصور */
 #overlay {
     display: none;
     position: fixed;
@@ -68,11 +79,27 @@ header #schoolName {
     background: rgba(0,0,0,0.85);
     justify-content: center;
     align-items: center;
+    z-index: 2000;
 }
 #overlay img {
     max-width: 90%;
     max-height: 90%;
     border-radius: 10px;
+}
+
+/* 🔷 الفوتر (مطابق للرئيسية) */
+footer {
+    background: #bb9d84;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer img {
+    width: 60px;
+    display: block;
+    margin: 0 auto 10px auto;
 }
 </style>
 
@@ -80,16 +107,13 @@ header #schoolName {
 
 <body>
 
-<!-- 🔷 الهيدر -->
 <header>
-    <img src="nobles.png" alt="شعار المدرسة">
-    <div id="schoolName">ثانوية النبلاء النموذجية للبنين</div>
+    <img src="Nobles.png" class="logo" alt="شعار المدرسة">
+    <h1>ثانوية النبلاء النموذجية للبنين</h1>
 </header>
 
-<!-- 🔷 عنوان الصفحة -->
 <div class="page-title">طلاب النبلاء</div>
 
-<!-- 🔷 شبكة الصور 3x3 -->
 <div class="gallery">
     <img src="1.jpg" onclick="zoom(this)">
     <img src="2.jpg" onclick="zoom(this)">
@@ -102,7 +126,6 @@ header #schoolName {
     <img src="9.jpg" onclick="zoom(this)">
 </div>
 
-<!-- 🔷 تكبير الصور عند الضغط -->
 <div id="overlay" onclick="closeZoom()">
     <img id="zoomImg">
 </div>
@@ -118,16 +141,11 @@ function closeZoom(){
 }
 </script>
 
-</body>
-<!-- 🔷 الفوتر -->
-<footer style="background:#bb9d84; color:white; padding:20px; text-align:center; font-family:Arial, sans-serif;">
-    <!-- شعار صغير -->
-    <img src="Nobles.png" alt="شعار المدرسة" style="width:60px; display:block; margin:0 auto 10px auto;">
-
-    <!-- الحقوق -->
-    <p style="margin:5px; font-size:16px;">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
-
-    <!-- العبارة الجميلة -->
-    <p style="margin:5px; font-size:18px; font-weight:bold;">بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
+<footer>
+    <img src="Nobles.png" alt="شعار المدرسة">
+    <p>جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
+    <p>بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
 </footer>
+
+</body>
 </html>

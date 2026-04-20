@@ -5,30 +5,35 @@
 <title>فعاليات النبلاء - معارض الحاسوب</title>
 
 <style>
+/* 👈 الأساسيات (مطابقة للرئيسية) */
 body {
     margin: 0;
-    font-family: Times New Roman;
+    font-family: 'Times New Roman', serif;
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
+    background-color: #f4f4f4;
 }
 
-/* 🔷 الهيدر */
+/* 🔷 الهيدر (مطابق للرئيسية 100% وبدون زر القائمة) */
 header {
     background: #bb9d84;
     color: white;
     padding: 20px;
-    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-header img {
+header img.logo {
     width: 350px;
+    height: auto;
 }
 
-/* 🔥 عنوان المدرسة (يمكن التحكم بالحجم هنا) */
-.school-title {
-    font-size: 45px; /* 👈 غيّر الرقم هنا لتكبير/تصغير العنوان */
+header h1 {
+    font-size: 35px; /* 👈 تم التوحيد مع الرئيسية */
     font-weight: bold;
-    margin-top: 10px;
+    margin: 10px 0 0 0;
 }
 
 /* 🎥 الفيديو */
@@ -36,60 +41,61 @@ header img {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 .video {
     width: 90%;
     max-width: 1100px;
-    height: 600px;
-    object-fit: cover;
+    height: auto;
+    max-height: 600px;
     background: black;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* 🔷 مربع النص */
 .box {
-    margin: 30px auto;
+    margin: 40px auto 60px auto;
     width: 85%;
-    background: #f5f5f5;
-    padding: 25px;
-    border-radius: 12px;
-
-    text-align: justify;
+    max-width: 900px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    text-align: right;
     direction: rtl;
-    line-height: 1.9;
-    font-size: 35px;
-
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    line-height: 1.8;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-right: 8px solid #bb9d84;
 }
 
 /* 🔥 عنوان داخل مربع النص */
 .box-title {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     color: #bb9d84;
     text-align: right;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-/* 🔷 الفوتر */
+.box-content {
+    font-size: 28px;
+    color: #333;
+    text-align: justify;
+}
+
+/* 🔷 الفوتر (مطابق للرئيسية) */
 footer {
-    background:#bb9d84;
-    color:white;
-    padding:20px;
-    text-align:center;
-    font-family:Arial, sans-serif;
+    background: #bb9d84;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
 footer img {
-    width:60px;
-    display:block;
-    margin:0 auto 10px auto;
-}
-
-footer p {
-    margin: 5px;
+    width: 60px;
+    display: block;
+    margin: 0 auto 10px auto;
 }
 </style>
 
@@ -97,17 +103,13 @@ footer p {
 
 <body>
 
-<!-- 🔷 الهيدر -->
 <header>
-    <img src="Nobles.png">
-
-    <!-- 🔥 اسم المدرسة (قابل للتكبير من CSS) -->
-    <div class="school-title">
-        ثانوية النبلاء النموذجية للبنين
-    </div>
+    <img src="Nobles.png" class="logo" alt="شعار المدرسة">
+    <h1>ثانوية النبلاء النموذجية للبنين</h1>
 </header>
-<div style="height:60px;"></div>
-<!-- 🎥 الفيديو -->
+
+<div style="height:20px;"></div>
+
 <div class="video-container">
     <video class="video" controls>
         <source src="SD.mp4" type="video/mp4">
@@ -115,25 +117,19 @@ footer p {
     </video>
 </div>
 
-<!-- 🔷 مربع النص -->
 <div class="box">
-
-    <div class="box-title">
-        معارض الحاسوب
+    <div class="box-title">معارض الحاسوب</div>
+    <div class="box-content">
+        شاركت ثانوية النبلاء النموذجية في عدة معارض للحاسوب وآخرها في العام الدراسي الماضي 2024/2025 وحصدت المركز الأول.  
+        أنشأ طلاب النبلاء مشاريع مميزة وكانت هذه المشاريع بإشراف أستاذ مادة الحاسوب الأستاذ سجاد وإعلام ثانوية النبلاء النموذجية.
     </div>
-
-    شاركت ثانوية النبلاء النموذجية في عدة معارض للحاسوب واخرها في العام الدراسي الماضي 2024/2025 واخذت المركز الاول.  
-    أنشأ طلاب النبلاء مشاريع مميزة وكانت هذه المشاريع بإشراف استاذ مادة الحاسوب الأستاذ سجاد وإعلام ثانوية النبلاء النموذجية.
-
 </div>
 
-</body>
-
-<!-- 🔷 الفوتر -->
 <footer>
     <img src="Nobles.png" alt="شعار المدرسة">
     <p>جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
     <p>بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
 </footer>
 
+</body>
 </html>
