@@ -11,6 +11,7 @@ body {
     font-family: 'Times New Roman', serif;
     font-size: 25px;
     text-align: center;
+    background-color: #f4f4f4;
 }
 
 /* 🔷 الهيدر */
@@ -24,7 +25,7 @@ header {
     align-items: center;
 }
 
-header img {
+header img.logo {
     width: 350px;
     height: auto;
 }
@@ -105,7 +106,7 @@ header h1 {
     transform: scale(1.2);
 }
 
-/* 🔹 الكروت */
+/* 🔹 الكروت (تم الحفاظ على التنسيق الأصلي 100%) */
 .container {
     display: flex;
     justify-content: center;
@@ -146,23 +147,32 @@ header h1 {
     font-size: 22px;
 }
 
-/* 🔷 الفوتر */
+/* 🔷 الفوتر المطور (التحديث المطلوب) */
 footer {
-    background:#bb9d84;
-    color:white;
-    padding:20px;
-    text-align:center;
-    font-family:Arial, sans-serif;
+    background: #bb9d84;
+    color: white;
+    padding: 40px 20px;
+    margin-top: 60px;
+    border-top: 5px solid #a68b73;
+    text-align: center;
 }
 
-footer img {
-    width:60px;
-    display:block;
-    margin:0 auto 10px auto;
+footer .footer-logo {
+    width: 80px;
+    margin-bottom: 15px;
 }
 
-footer p {
-    margin: 5px;
+footer .rights-text {
+    font-size: 18px;
+    margin: 10px 0;
+    opacity: 0.9;
+}
+
+footer .motto-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 </style>
 </head>
@@ -171,11 +181,11 @@ footer p {
 
 <header>
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <img src="Nobles.png" class="logo">
+    <img src="Nobles.png" class="logo" alt="شعار المدرسة">
     <h1>ثانوية النبلاء النموذجية للبنين</h1>
 </header>
 
-<div class="fullscreen-menu" id="fullscreenMenu" style="display: none;">
+<div class="fullscreen-menu" id="fullscreenMenu">
     <div class="close-btn" onclick="toggleMenu()">×</div>
     <div class="menu-box">
         <a href="newspaper.html">جريدة النبلاء</a>
@@ -192,18 +202,10 @@ footer p {
 </div>
 
 <div class="social" style="margin:20px 0;">
-    <a href="https://www.instagram.com/n.ub.a?igsh=MWFmeDIzNWQyNzd1aA==" target="_blank">
-        <img src="images (1) (4).jpeg">
-    </a>
-    <a href="https://www.facebook.com/profile.php?id=100076005472140" target="_blank">
-        <img src="images (5).png">
-    </a>
-    <a href="https://www.tiktok.com/@n.ub.a?_r=1&_t=ZS-95colKH4wGS" target="_blank">
-        <img src="images (4).png">
-    </a>
-    <a href="https://www.youtube.com/@n.ub.a" target="_blank">
-        <img src="Youtube.jpg">
-    </a>
+    <a href="https://www.instagram.com/n.ub.a?igsh=MWFmeDIzNWQyNzd1aA==" target="_blank"><img src="images (1) (4).jpeg"></a>
+    <a href="https://www.facebook.com/profile.php?id=100076005472140" target="_blank"><img src="images (5).png"></a>
+    <a href="https://www.tiktok.com/@n.ub.a?_r=1&_t=ZS-95colKH4wGS" target="_blank"><img src="images (4).png"></a>
+    <a href="https://www.youtube.com/@n.ub.a" target="_blank"><img src="Youtube.jpg"></a>
 </div>
 
 <div class="container">
@@ -245,26 +247,23 @@ footer p {
 
     <a href="fashion.html" style="text-decoration:none;">
         <div class="card">
-            <img src="Fashion.png"> <h3>👔 دليل الازياء</h3>
+            <img src="Fashion.png">
+            <h3>👔 دليل الازياء</h3>
         </div>
     </a>
 
 </div>
 
 <footer>
-    <img src="Nobles.png" alt="شعار المدرسة">
-    <p>جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
-    <p>بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
+    <img src="Nobles.png" class="footer-logo" alt="شعار المدرسة">
+    <p class="rights-text">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
+    <p class="motto-text">بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
 </footer>
 
 <script>
 function toggleMenu() {
     const menu = document.getElementById("fullscreenMenu");
-    if (menu.style.display === "flex") {
-        menu.style.display = "none";
-    } else {
-        menu.style.display = "flex";
-    }
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
 }
 
 window.onclick = function(event) {

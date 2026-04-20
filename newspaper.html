@@ -33,38 +33,25 @@ header img.logo {
 header h1 {
     font-size: 35px;
     margin: 10px 0 0 0;
+    font-weight: bold;
 }
 
-/* 🔷 تنسيق عناوين الأعداد الجديد (المطور) */
+/* 🔷 تنسيق عناوين الأعداد (ألوان ثابتة) */
 .issue-box {
     display: block;
-    background: linear-gradient(135deg, #bb9d84 0%, #8d735d 100%); /* تدرج لوني فخم */
+    background: #bb9d84; /* لون ثابت */
     color: white;
     padding: 15px 60px;
-    border-radius: 50px; /* شكل بيضاوي أنيق */
+    border-radius: 50px;
     font-size: 28px;
     font-weight: bold;
     margin: 70px auto 40px auto;
     width: fit-content;
-    text-align: center;
-    cursor: default;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* ظل عميق */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     border: 2px solid #ffffff;
-    letter-spacing: 1px;
-    position: relative;
 }
 
-/* إضافة خطوط تزيينية بجانب العنوان */
-.issue-box::before, .issue-box::after {
-    content: "";
-    display: inline-block;
-    width: 50px;
-    height: 2px;
-    background-color: rgba(255,255,255,0.5);
-    vertical-align: middle;
-    margin: 0 15px;
-}
-
+/* 🖼️ تنسيق الصور */
 .zoom-img {
     width: 250px;
     margin: 15px;
@@ -75,8 +62,7 @@ header h1 {
 }
 
 .zoom-img:hover { 
-    transform: translateY(-10px) scale(1.05); /* حركة للأعلى عند المرور */
-    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    transform: translateY(-10px) scale(1.05); 
 }
 
 .single-img {
@@ -84,12 +70,32 @@ header h1 {
     border-radius: 15px;
     margin-top: 20px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
     cursor: pointer;
 }
 
-.single-img:hover {
-    transform: scale(1.02);
+/* 🔷 الفوتر المطور (ألوان ثابتة) */
+footer {
+    background: #bb9d84; /* لون ثابت */
+    color: white;
+    padding: 40px 20px;
+    margin-top: 100px;
+    border-top: 5px solid #a68b73;
+}
+
+footer .footer-logo {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+footer .rights-text {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+footer .motto-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 /* 🔷 نافذة التكبير */
@@ -101,36 +107,12 @@ header h1 {
     display: none;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     z-index: 2000;
 }
-
 #overlay img {
     max-width: 90%;
     max-height: 85%;
     border-radius: 10px;
-    box-shadow: 0 0 30px rgba(255,255,255,0.2);
-}
-
-#overlay h2 {
-    color: white;
-    margin-top: 20px;
-    font-size: 28px;
-}
-
-/* 🔷 الفوتر */
-footer {
-    background: #bb9d84;
-    color: white;
-    padding: 30px;
-    text-align: center;
-    margin-top: 80px;
-}
-
-footer img {
-    width: 60px;
-    display: block;
-    margin: 0 auto 10px auto;
 }
 </style>
 
@@ -156,7 +138,7 @@ footer img {
     <img src="IMG_20260417_192944_673.png" class="zoom-img" onclick="zoomImage(this)">
 </div>
 
-<hr style="width: 80%; margin: 60px auto; border: 0; height: 1px; background: linear-gradient(to right, transparent, #bb9d84, transparent);">
+<hr style="width: 70%; margin: 60px auto; border: 0; height: 1px; background: #bb9d84; opacity: 0.3;">
 
 <div class="issue-box">
     العدد الثاني - N (2)
@@ -168,22 +150,19 @@ footer img {
 
 <div id="overlay" onclick="closeZoom()">
     <img id="zoomedImg">
-    <h2 id="zoomText"></h2>
 </div>
 
 <footer>
-    <img src="Nobles.png" alt="شعار المدرسة">
-    <p>جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
-    <p>بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
+    <img src="Nobles.png" class="footer-logo" alt="شعار المدرسة">
+    <p class="rights-text">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
+    <p class="motto-text">بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
 </footer>
 
 <script>
 function zoomImage(img) {
     document.getElementById("overlay").style.display = "flex";
     document.getElementById("zoomedImg").src = img.src;
-    document.getElementById("zoomText").innerHTML = "";
 }
-
 function closeZoom() {
     document.getElementById("overlay").style.display = "none";
 }

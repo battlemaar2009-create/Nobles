@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>فعاليات النبلاء - معارض الحاسوب</title>
+<title>فعاليات النبلاء - ثانوية النبلاء</title>
 
 <style>
 /* 👈 الأساسيات */
@@ -36,6 +36,59 @@ header h1 {
     margin: 10px 0 0 0;
 }
 
+/* 🔹 زر القائمة الثلاثية */
+.menu-btn {
+    font-size: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    user-select: none;
+}
+
+/* 🔹 القائمة المنسدلة الفاخرة */
+.fullscreen-menu {
+    display: none; 
+    position: fixed;
+    top: 0; right: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(187,157,132,0.9); 
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-box {
+    background-color: #ffffff; 
+    border-radius: 20px;
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 280px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.fullscreen-menu a {
+    font-size: 26px;
+    color: #000000;
+    text-decoration: none;
+    margin: 12px 0;
+    width: 100%;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.fullscreen-menu a:hover { color: #bb9d84; }
+
+.close-btn {
+    font-size: 45px;
+    cursor: pointer;
+    align-self: flex-start;
+    margin-bottom: 10px;
+    color: #333;
+}
+
 /* 🏗️ الحاوية الرئيسية للأقسام */
 .main-content {
     max-width: 1200px;
@@ -43,7 +96,7 @@ header h1 {
     padding: 0 20px;
 }
 
-/* 📦 صف القسم (محتوى مرئي + نص) */
+/* 📦 صف القسم */
 .section-row {
     display: flex;
     align-items: center;
@@ -57,14 +110,12 @@ header h1 {
     border-right: 8px solid #bb9d84;
 }
 
-/* عكس الاتجاه للأقسام الزوجية لإعطاء شكل جمالي */
 .section-row:nth-child(even) {
     flex-direction: row-reverse;
     border-right: none;
     border-left: 8px solid #bb9d84;
 }
 
-/* 🖼️ تنسيق المحتوى المرئي (فيديو أو صورة) */
 .media-wrapper {
     flex: 1;
     min-width: 300px;
@@ -79,7 +130,6 @@ header h1 {
     object-fit: cover;
 }
 
-/* 📝 تنسيق المحتوى النصي */
 .text-wrapper {
     flex: 1;
     text-align: right;
@@ -99,21 +149,33 @@ header h1 {
     text-align: justify;
 }
 
-/* 🔷 الفوتر */
+/* 🔷 الفوتر المطور */
 footer {
     background: #bb9d84;
     color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 40px 20px;
+    margin-top: 80px;
+    border-top: 5px solid #a68b73;
 }
 
-footer img {
-    width: 60px;
-    display: block;
-    margin: 0 auto 10px auto;
+footer .footer-logo {
+    width: 80px;
+    margin-bottom: 15px;
 }
 
-/* 📱 التوافق مع الجوال */
+footer .rights-text {
+    font-size: 18px;
+    margin: 10px 0;
+    opacity: 0.9;
+}
+
+footer .motto-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
 @media (max-width: 850px) {
     .section-row, .section-row:nth-child(even) {
         flex-direction: column;
@@ -130,9 +192,22 @@ footer img {
 <body>
 
 <header>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
     <img src="Nobles.png" class="logo" alt="شعار المدرسة">
     <h1>ثانوية النبلاء النموذجية للبنين</h1>
 </header>
+
+<div class="fullscreen-menu" id="fullscreenMenu">
+    <div class="menu-box">
+        <div class="close-btn" onclick="toggleMenu()">×</div>
+        <a href="index.html">الرئيسية</a>
+        <a href="newspaper.html">جريدة النبلاء</a>
+        <a href="students.html">طلابنا</a>
+        <a href="school.html">ثانويتنا</a>
+        <a href="tamima.html">التميمة</a>
+        <a href="fashion.html">أزياء النبلاء</a>
+    </div>
+</div>
 
 <div class="main-content">
 
@@ -140,7 +215,6 @@ footer img {
         <div class="media-wrapper">
             <video controls>
                 <source src="SD.mp4" type="video/mp4">
-                متصفحك لا يدعم تشغيل الفيديو
             </video>
         </div>
         <div class="text-wrapper">
@@ -154,29 +228,26 @@ footer img {
     <div class="section-row">
         <div class="media-wrapper">
             <video controls>
-                <source src="بسم الله الرحمن الرحيم بحمد الله وتوفيقه، أُجريت اليوم في ثانوية النبلاء النموذجية ال.mp4" type="video/mp4">
-                متصفحك لا يدعم تشغيل الفيديو
+                <source src="مسابقات الرياضيات.mp4" type="video/mp4">
             </video>
         </div>
         <div class="text-wrapper">
             <div class="box-title">مسابقات الرياضيات</div>
             <div class="box-content">
-          اقامت ثانوية النبلاء عدة مسابقات للرياضيات لغرض الكشف عن ابداع الطلاب خارج ورقة روتين الامتحانات المتعارف ولذا اقام الاستاذ علي جبر مدرس مادة الرياضيات للصف الخامس العلمي مسابقات رياضيات وبحضور ادارة واعلام المدرسة ولجنة الرياضيات 
+                أقامت ثانوية النبلاء عدة مسابقات للرياضيات لغرض الكشف عن إبداع الطلاب خارج روتين الامتحانات المتعارف عليه، حيث أقام الأستاذ علي جبر مدرس مادة الرياضيات للصف الخامس العلمي مسابقات وبحضور إدارة وإعلام المدرسة ولجنة الرياضيات.
             </div>
         </div>
     </div>
 
     <div class="section-row">
         <div class="media-wrapper">
-            <img src="Mm.jpg" alt="فعاليات النبلاء">
+            <img src="Mm.jpg" alt="مسابقة اللغة الانكليزية">
         </div>
         <div class="text-wrapper">
-            <div class="box-title">مسابقة اللغة الانكليزية </div>
+            <div class="box-title">مسابقة اللغة الإنكليزية</div>
             <div class="box-content">
-            أقامت ثانوية النبلاء النموذجية مسابقة داخلية في مادة اللغة الإنكليزية، وذلك ضمن سعيها المستمر لتعزيز مهارات الطلبة اللغوية وتنمية قدراتهم العلمية.
-وشهدت المسابقة حضور السيدة نادية سعد نعمة، مسؤولة شعبة الثقافة والفنون في مديرية الشباب والرياضة/مدينة الصدر، التي أشادت بجهود إدارة المدرسة والملاك التدريسي في تنظيم مثل هذه الفعاليات الهادفة. كما جرت المنافسات بإشراف مباشر من أساتذة اللغة الإنكليزية، الذين حرصوا على توفير أجواء تنافسية إيجابية بين الطلبة.
-وتأتي هذه المبادرة في إطار دعم الأنشطة اللاصفية، وتشجيع الطلبة على تطوير مهاراتهم في اللغة الإنكليزية بما يسهم في رفع مستواهم العلمي
-اعلام الثانوية
+                أقامت ثانوية النبلاء النموذجية مسابقة داخلية في مادة اللغة الإنكليزية، لتعزيز مهارات الطلبة اللغوية. وشهدت المسابقة حضور السيدة نادية سعد نعمة، مسؤولة شعبة الثقافة والفنون في مديرية الشباب والرياضة، وجرت المنافسات بإشراف مباشر من أساتذة المادة.
+                <br><strong>إعلام الثانوية</strong>
             </div>
         </div>
     </div>
@@ -184,10 +255,24 @@ footer img {
 </div>
 
 <footer>
-    <img src="Nobles.png" alt="شعار المدرسة">
-    <p>جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
-    <p>بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
+    <img src="Nobles.png" class="footer-logo" alt="شعار المدرسة">
+    <p class="rights-text">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
+    <p class="motto-text">بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
 </footer>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("fullscreenMenu");
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+}
+
+window.onclick = function(event) {
+    const menu = document.getElementById("fullscreenMenu");
+    if (event.target === menu) {
+        menu.style.display = "none";
+    }
+}
+</script>
 
 </body>
 </html>

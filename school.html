@@ -14,7 +14,7 @@ body {
     background-color: #f4f4f4;
 }
 
-/* 🔷 الهيدر (مطابق للرئيسية 100%) */
+/* 🔷 الهيدر */
 header {
     background: #bb9d84;
     color: white;
@@ -36,7 +36,7 @@ header h1 {
     font-weight: bold;
 }
 
-/* 🔷 الفيديو (تمت إعادته للشكل المطلوب) */
+/* 🔷 الفيديو */
 .video-container {
     display: flex;
     justify-content: center;
@@ -76,18 +76,35 @@ video {
     color: #333;
 }
 
-/* 🔷 الفوتر */
+/* 🔷 الفوتر المطور الموحد (اللون الثابت) */
 footer {
     background: #bb9d84;
     color: white;
-    padding: 20px;
+    padding: 40px 20px;
+    margin-top: 100px;
+    border-top: 5px solid #a68b73;
     text-align: center;
 }
 
-footer img {
-    width: 60px;
+footer .footer-logo {
+    width: 80px;
+    margin-bottom: 15px;
     display: block;
-    margin: 0 auto 10px auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer .rights-text {
+    font-size: 18px;
+    margin: 10px 0;
+    opacity: 0.9;
+}
+
+footer .motto-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 </style>
 
@@ -115,9 +132,9 @@ footer img {
 </div>
 
 <footer>
-    <img src="Nobles.png" alt="شعار المدرسة">
-    <p>جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
-    <p>بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
+    <img src="Nobles.png" class="footer-logo" alt="شعار المدرسة">
+    <p class="rights-text">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
+    <p class="motto-text">بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
 </footer>
 
 </body>
