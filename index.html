@@ -95,18 +95,25 @@ header h1 {
     left: 20px;
 }
 
-/* 🔹 السوشيال ميديا */
+/* 🔹 السوشيال ميديا (تم إزالة أي خلفية بيضاء) */
+.social {
+    margin: 20px 0;
+    background: transparent; /* خلفية شفافة */
+}
+
 .social img {
     width: 100px;
     margin: 5px;
     transition: 0.3s;
+    background: transparent; /* التأكد من أن الصور نفسها لا تملك خلفية */
+    mix-blend-mode: multiply; /* ميزة اختيارية لدمج الأيقونات مع الخلفية الرمادية للموقع */
 }
 
 .social img:hover {
     transform: scale(1.2);
 }
 
-/* 🔹 الكروت (تم الحفاظ على التنسيق الأصلي 100%) */
+/* 🔹 الكروت */
 .container {
     display: flex;
     justify-content: center;
@@ -147,7 +154,7 @@ header h1 {
     font-size: 22px;
 }
 
-/* 🔷 الفوتر المطور (التحديث المطلوب) */
+/* 🔷 الفوتر المطور */
 footer {
     background: #bb9d84;
     color: white;
@@ -194,6 +201,7 @@ footer .motto-text {
         <a href="tamima.html">التميمة</a>
         <a href="activities.html">فعاليات النبلاء</a>
         <a href="fashion.html">دليل الازياء</a>
+        <a href="address.html">العنوان</a>
     </div>
 </div>
 
@@ -201,7 +209,7 @@ footer .motto-text {
     <img src="main.jpg" style="width:100%; height:280px; object-fit:cover;">
 </div>
 
-<div class="social" style="margin:20px 0;">
+<div class="social">
     <a href="https://www.instagram.com/n.ub.a?igsh=MWFmeDIzNWQyNzd1aA==" target="_blank"><img src="images (1) (4).jpeg"></a>
     <a href="https://www.facebook.com/profile.php?id=100076005472140" target="_blank"><img src="images (5).png"></a>
     <a href="https://www.tiktok.com/@n.ub.a?_r=1&_t=ZS-95colKH4wGS" target="_blank"><img src="images (4).png"></a>
@@ -249,6 +257,12 @@ footer .motto-text {
         <div class="card">
             <img src="Fashion.png">
             <h3>👔 دليل الازياء</h3>
+        </div>
+    </a>
+
+    <a href="address.html" style="text-decoration:none;">
+        <div class="card">
+            <img src="Bm.png"> <h3>📍 العنوان</h3>
         </div>
     </a>
 
