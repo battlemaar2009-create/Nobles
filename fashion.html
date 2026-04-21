@@ -13,13 +13,12 @@
     --card-bg: #ffffff;
     --text-color: #333333;
     --gold-line: #d4af37;
-    
     --hf-bg: linear-gradient(135deg, #bb9d84 0%, #a68b73 100%);
     --hf-text: #ffffff;
 
     /* إعدادات الصور */
-    --wrapper-width: 420px;  
-    --wrapper-height: 700px;
+    --wrapper-width: 400px;  
+    --wrapper-height: 650px;
 }
 
 /* 🌙 الوضع الليلي الملكي */
@@ -31,6 +30,23 @@ body.dark-mode {
     --hf-text: #bb9d84; 
 }
 
+/* ✨ تعريف انميشن الدخول */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-entry {
+    opacity: 0;
+    animation: fadeInUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -38,32 +54,24 @@ body {
     color: var(--text-color);
     text-align: center;
     transition: all 0.4s ease;
+    overflow-x: hidden;
 }
 
-/* 🔷 الهيدر الموحد */
+/* 🔷 الهيدر الموحد (مطابق للرئيسية والصفحات السابقة) */
 header {
     background: var(--hf-bg);
     color: var(--hf-text);
-    padding: 20px 0;
+    padding: 15px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 3px solid var(--gold-line);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    border-bottom: 2px solid var(--gold-line);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-.header-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-header img.logo { 
-    width: 100px; 
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
-}
-
-header h1 { font-size: clamp(18px, 5vw, 28px); margin: 0; font-weight: 800; }
+.header-container { display: flex; align-items: center; gap: 15px; }
+header img.logo { width: 90px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2)); }
+header h1 { font-size: clamp(16px, 4vw, 26px); margin: 0; font-weight: 800; }
 
 /* 🔹 عنوان الصفحة */
 .guide-title {
@@ -71,6 +79,7 @@ header h1 { font-size: clamp(18px, 5vw, 28px); margin: 0; font-weight: 800; }
     font-weight: 900;
     margin: 50px 0 10px 0;
     color: var(--primary-color);
+    animation-delay: 0.1s;
 }
 body.dark-mode .guide-title { color: #ffffff; }
 
@@ -80,7 +89,7 @@ body.dark-mode .guide-title { color: #ffffff; }
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 40px;
     padding: 20px;
     margin-bottom: 60px;
 }
@@ -116,13 +125,9 @@ body.dark-mode .guide-title { color: #ffffff; }
     box-shadow: 0 20px 50px rgba(0,0,0,0.2);
 }
 
-.fashion-card:hover img {
-    transform: scale(1.05);
-}
-
 .uniform-label {
     margin-top: 25px;
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 900;
     color: var(--hf-text);
     background: var(--hf-bg);
@@ -138,15 +143,16 @@ footer {
     color: var(--hf-text);
     padding: 50px 20px;
     border-top: 4px solid var(--gold-line);
+    margin-top: 50px;
 }
 footer .footer-logo { width: 80px; margin-bottom: 15px; filter: brightness(1.1); }
-footer .rights-text { font-size: 16px; opacity: 0.8; margin: 10px 0; }
-footer .motto-text { font-size: 22px; font-weight: bold; margin-top: 10px; }
+footer .rights-text { font-size: 14px; opacity: 0.8; margin: 10px 0; }
+footer .motto-text { font-size: 20px; font-weight: bold; margin-top: 10px; }
 
 /* 📱 استجابة الموبايل */
-@media (max-width: 600px) {
-    .img-wrapper { width: 85vw; height: 450px; }
-    .header-container { flex-direction: column; gap: 8px; }
+@media (max-width: 768px) {
+    .img-wrapper { width: 85vw; height: 500px; }
+    .header-container { flex-direction: row; }
     .guide-title { font-size: 35px; }
 }
 </style>
@@ -156,22 +162,22 @@ footer .motto-text { font-size: 22px; font-weight: bold; margin-top: 10px; }
 
 <header>
     <div class="header-container">
-        <img src="Nobles.png" class="logo">
+        <img src="Nobles.png" class="logo" alt="Logo">
         <h1>ثانوية النبلاء النموذجية للبنين</h1>
     </div>
 </header>
 
-<div class="guide-title">دليل الأزياء</div>
+<div class="guide-title animate-entry">دليل الأزياء</div>
 
 <div class="fashion-container">
-    <div class="fashion-card">
+    <div class="fashion-card animate-entry" style="animation-delay: 0.3s">
         <div class="img-wrapper">
             <img src="Fashion2.png" alt="زي المتوسطة">
         </div>
         <div class="uniform-label">زي المتوسطة</div>
     </div>
 
-    <div class="fashion-card">
+    <div class="fashion-card animate-entry" style="animation-delay: 0.5s">
         <div class="img-wrapper">
             <img src="Fashion.png" alt="زي الإعدادية">
         </div>
@@ -186,7 +192,6 @@ footer .motto-text { font-size: 22px; font-weight: bold; margin-top: 10px; }
 </footer>
 
 <script>
-// 👈 مزامنة الوضع الليلي تلقائياً مع الصفحة الرئيسية
 window.onload = function() {
     if (localStorage.getItem('theme') === 'dark') {
         document.getElementById('body').classList.add('dark-mode');
