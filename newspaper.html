@@ -2,149 +2,189 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>جريدة النبلاء</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جريدة النبلاء | ثانوية النبلاء</title>
 
 <style>
-/* 👈 الأساسيات */
+/* ⚙️ المتغيرات الموحدة */
+:root {
+    --primary-color: #bb9d84;
+    --bg-light: #f4f6f8;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --gold-line: #d4af37;
+    --hf-bg: linear-gradient(135deg, #bb9d84 0%, #a68b73 100%);
+    --hf-text: #ffffff;
+}
+
+body.dark-mode {
+    --bg-light: #0a0a0a;
+    --card-bg: #161616;
+    --text-color: #e0e0e0;
+    --hf-bg: radial-gradient(circle at center, #1c1c1c 0%, #000000 100%);
+    --hf-text: #bb9d84; 
+}
+
+/* ✨ تعريف الانميشن */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-entry {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0; /* يبدأ مخفيًا حتى يعمل الانميشن */
+}
+
 body {
     margin: 0;
-    font-family: 'Times New Roman', serif;
-    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-color);
     text-align: center;
-    background-color: #f4f4f4;
+    transition: all 0.4s ease;
+    overflow-x: hidden;
 }
 
-/* 🔷 الهيدر */
+/* 🔷 الهيدر (بدون أزرار كما طلبت) */
 header {
-    background: #bb9d84;
-    color: white;
-    padding: 20px;
-    position: relative;
+    background: var(--hf-bg);
+    color: var(--hf-text);
+    padding: 15px 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    border-bottom: 2px solid var(--gold-line);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-header img.logo {
-    width: 350px;
-    height: auto;
-}
+.header-container { display: flex; align-items: center; gap: 15px; }
+header img.logo { width: 90px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2)); }
+header h1 { font-size: clamp(16px, 4vw, 26px); margin: 0; font-weight: 800; }
 
-header h1 {
-    font-size: 35px;
-    margin: 10px 0 0 0;
-    font-weight: bold;
-}
-
-/* 🔷 تنسيق عناوين الأعداد (ألوان ثابتة) */
+/* 🔷 صناديق عناوين الأعداد */
 .issue-box {
-    display: block;
-    background: #bb9d84; /* لون ثابت */
-    color: white;
-    padding: 15px 60px;
+    display: inline-block;
+    background: var(--hf-bg);
+    color: var(--hf-text);
+    padding: 12px 45px;
     border-radius: 50px;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
-    margin: 70px auto 40px auto;
-    width: fit-content;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    border: 2px solid #ffffff;
+    margin: 50px auto 30px auto;
+    border: 2px solid var(--gold-line);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    animation-delay: 0.2s;
 }
 
 /* 🖼️ تنسيق الصور */
+.images-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
 .zoom-img {
-    width: 250px;
-    margin: 15px;
-    border-radius: 15px;
+    width: 280px;
+    height: 380px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: 0.4s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+    object-fit: cover;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: var(--card-bg);
+    animation-delay: 0.4s;
 }
 
 .zoom-img:hover { 
-    transform: translateY(-10px) scale(1.05); 
+    transform: translateY(-10px) scale(1.02); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
 }
 
 .single-img {
     width: 350px;
-    border-radius: 15px;
-    margin-top: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 90%;
+    height: auto;
+    border-radius: 20px;
     cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    animation-delay: 0.6s;
 }
 
-/* 🔷 الفوتر المطور (ألوان ثابتة) */
+/* 🔷 الفوتر */
 footer {
-    background: #bb9d84; /* لون ثابت */
-    color: white;
-    padding: 40px 20px;
-    margin-top: 100px;
-    border-top: 5px solid #a68b73;
+    background: var(--hf-bg);
+    color: var(--hf-text);
+    padding: 50px 20px;
+    margin-top: 80px;
+    border-top: 4px solid var(--gold-line);
 }
-
-footer .footer-logo {
-    width: 80px;
-    margin-bottom: 15px;
-}
-
-footer .rights-text {
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-footer .motto-text {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 10px;
-}
+.footer-logo { width: 80px; margin-bottom: 15px; filter: brightness(1.1); }
 
 /* 🔷 نافذة التكبير */
 #overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.92);
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+    z-index: 3000;
 }
-#overlay img {
-    max-width: 90%;
-    max-height: 85%;
+#overlay img { 
+    max-width: 90%; 
+    max-height: 85%; 
     border-radius: 10px;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+@media (max-width: 600px) {
+    .header-container { flex-direction: row; }
+    .zoom-img { width: 45%; height: 220px; } /* صورتين بجانب بعض في الموبايل لتقليل المساحة */
+    .issue-box { font-size: 18px; padding: 10px 30px; }
 }
 </style>
-
 </head>
 
-<body>
+<body id="body">
 
 <header>
-    <img src="Nobles.png" class="logo" alt="شعار المدرسة">
-    <h1>ثانوية النبلاء النموذجية للبنين</h1>
+    <div class="header-container">
+        <img src="Nobles.png" class="logo" alt="Logo">
+        <h1>ثانوية النبلاء النموذجية للبنين</h1>
+    </div>
 </header>
 
-<div class="issue-box">
-    العدد الأول - N (1)
+<div class="animate-entry">
+    <div class="issue-box">العدد الأول - N (1)</div>
 </div>
 
-<div style="padding: 0 20px;">
-    <img src="IMG_20260417_192922_914.png" class="zoom-img" onclick="zoomImage(this)">
-    <img src="IMG_20260417_192505_522.png" class="zoom-img" onclick="zoomImage(this)">
-    <img src="IMG_20260417_192808_461.png" class="zoom-img" onclick="zoomImage(this)">
-    <img src="IMG_20260417_193021_908.png" class="zoom-img" onclick="zoomImage(this)">
-    <img src="IMG_20260417_193002_711.png" class="zoom-img" onclick="zoomImage(this)">
-    <img src="IMG_20260417_192944_673.png" class="zoom-img" onclick="zoomImage(this)">
+<div class="images-container">
+    <img src="IMG_20260417_192922_914.png" class="zoom-img animate-entry" style="animation-delay: 0.3s" onclick="zoomImage(this)">
+    <img src="IMG_20260417_192505_522.png" class="zoom-img animate-entry" style="animation-delay: 0.4s" onclick="zoomImage(this)">
+    <img src="IMG_20260417_192808_461.png" class="zoom-img animate-entry" style="animation-delay: 0.5s" onclick="zoomImage(this)">
+    <img src="IMG_20260417_193021_908.png" class="zoom-img animate-entry" style="animation-delay: 0.6s" onclick="zoomImage(this)">
+    <img src="IMG_20260417_193002_711.png" class="zoom-img animate-entry" style="animation-delay: 0.7s" onclick="zoomImage(this)">
+    <img src="IMG_20260417_192944_673.png" class="zoom-img animate-entry" style="animation-delay: 0.8s" onclick="zoomImage(this)">
 </div>
 
-<hr style="width: 70%; margin: 60px auto; border: 0; height: 1px; background: #bb9d84; opacity: 0.3;">
-
-<div class="issue-box">
-    العدد الثاني - N (2)
+<div class="animate-entry" style="animation-delay: 0.9s">
+    <div class="issue-box">العدد الثاني - N (2)</div>
 </div>
 
-<div style="margin-bottom: 50px;">
+<div style="margin-bottom: 50px;" class="animate-entry" style="animation-delay: 1s">
     <img src="SAVE_20260417_170539.jpg" class="single-img" onclick="zoomImage(this)">
 </div>
 
@@ -153,9 +193,9 @@ footer .motto-text {
 </div>
 
 <footer>
-    <img src="Nobles.png" class="footer-logo" alt="شعار المدرسة">
+    <img src="Nobles.png" class="footer-logo">
     <p class="rights-text">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
-    <p class="motto-text">بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
+    <p style="font-size:20px; font-weight:bold; margin-top:10px;">بالعلم ونبل الأخلاق نرتقي <b>سلم المجد</b></p>
 </footer>
 
 <script>
@@ -166,6 +206,13 @@ function zoomImage(img) {
 function closeZoom() {
     document.getElementById("overlay").style.display = "none";
 }
+
+window.onload = function() {
+    // مزامنة الوضع الليلي
+    if (localStorage.getItem('theme') === 'dark') {
+        document.getElementById('body').classList.add('dark-mode');
+    }
+};
 </script>
 
 </body>

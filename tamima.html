@@ -1,168 +1,243 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>تميمة النبلاء - ثانوية النبلاء</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تميمة النبلاء | ثانوية النبلاء</title>
+    
+    <style>
+        /* ⚙️ المتغيرات الموحدة */
+        :root {
+            --primary-gold: #bb9d84;
+            --bright-gold: #d4af37;
+            --bg-light: #f4f6f8;
+            --card-white: #ffffff;
+            --text-main: #333333;
+            --text-sub: #777777;
+            --hf-gradient: linear-gradient(135deg, #bb9d84 0%, #a68b73 100%);
+            --hf-text: #ffffff;
+        }
 
-<style>
-/* 👈 الأساسيات */
-body {
-    margin: 0;
-    font-family: 'Times New Roman', serif;
-    font-size: 25px;
-    text-align: center;
-    background-color: #f4f4f4;
-    line-height: 1.6;
-}
+        /* 🌙 الوضع الليلي */
+        body.dark-mode {
+            --bg-light: #0a0a0a;
+            --card-white: #161616;
+            --text-main: #e0e0e0;
+            --text-sub: #bb9d84;
+            --hf-gradient: radial-gradient(circle at center, #1c1c1c 0%, #000000 100%);
+            --hf-text: #bb9d84;
+        }
 
-/* 🔷 الهيدر */
-header {
-    background: #bb9d84;
-    color: white;
-    padding: 20px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        /* ✨ تعريف انميشن الدخول */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-header img.logo {
-    width: 350px;
-    height: auto;
-}
+        .animate-entry {
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+        }
 
-header h1 {
-    font-size: 35px;
-    margin: 10px 0 0 0;
-    font-weight: bold;
-}
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.8;
+            transition: all 0.4s ease;
+            text-align: center;
+            overflow-x: hidden;
+        }
 
-/* 🔷 العناوين */
-.page-title {
-    font-size: 45px;
-    font-weight: bold;
-    margin: 40px 0 5px 0;
-    color: #bb9d84;
-}
+        /* 🔷 الهيدر الموحد */
+        header {
+            background: var(--hf-gradient);
+            color: var(--hf-text);
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid var(--bright-gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
 
-.page-title-en {
-    font-size: 24px;
-    font-weight: normal;
-    margin-bottom: 30px;
-    color: #777;
-    font-family: Arial, sans-serif;
-}
+        .header-container { display: flex; align-items: center; gap: 15px; }
+        header img.logo { width: 90px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2)); }
+        header h1 { font-size: clamp(16px, 4vw, 26px); margin: 0; font-weight: 800; }
 
-/* 🔷 الفيديو */
-.video-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-}
+        /* 🏆 العناوين */
+        .title-section {
+            margin: 60px 0 40px 0;
+            animation-delay: 0.1s;
+        }
 
-video {
-    width: 80%;
-    max-width: 650px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+        .page-title {
+            font-size: clamp(40px, 10vw, 65px);
+            font-weight: 900;
+            color: var(--primary-gold);
+            margin: 0;
+        }
 
-/* 🔷 مربع النص */
-.text-box {
-    background: #ffffff;
-    margin: 0 auto 50px auto;
-    max-width: 900px;
-    padding: 35px;
-    border-radius: 15px;
-    text-align: right;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border-right: 8px solid #bb9d84;
-}
+        .page-title-en {
+            font-size: clamp(12px, 3vw, 18px);
+            font-weight: 700;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-top: 5px;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 12px;
+        }
 
-.text-box h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #bb9d84;
-    font-weight: bold;
-}
+        .page-title-en::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 20%; right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--bright-gold), transparent);
+        }
 
-.text-box p {
-    font-size: 26px;
-    text-align: justify;
-    line-height: 1.8;
-    color: #333;
-}
+        /* 🎥 الفيديو */
+        .video-wrapper {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+            animation-delay: 0.3s;
+        }
 
-/* 🔷 الفوتر المطور الموحد (اللون الثابت) */
-footer {
-    background: #bb9d84;
-    color: white;
-    padding: 40px 20px;
-    margin-top: 100px;
-    border-top: 5px solid #a68b73;
-    text-align: center;
-}
+        video {
+            width: 100%;
+            border-radius: 25px;
+            border: 2px solid var(--bright-gold);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            background: #000;
+            transition: 0.3s ease;
+        }
+        video:hover { transform: scale(1.01); }
 
-footer .footer-logo {
-    width: 80px;
-    margin-bottom: 15px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+        /* 📝 بطاقة المحتوى */
+        .content-card {
+            max-width: 900px;
+            margin: 0 auto 80px auto;
+            background: var(--card-white);
+            padding: 50px 30px;
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-bottom: 8px solid var(--primary-gold);
+            animation-delay: 0.5s;
+        }
 
-footer .rights-text {
-    font-size: 18px;
-    margin: 10px 0;
-    opacity: 0.9;
-}
+        .content-card h2 {
+            font-size: clamp(28px, 4vw, 36px);
+            font-weight: 900;
+            color: var(--primary-gold);
+            margin-bottom: 25px;
+        }
 
-footer .motto-text {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 10px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-</style>
+        .highlight-text { color: var(--primary-gold); font-weight: 800; }
 
+        /* ✍️ صندوق التوقيع */
+        .author-box {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(187, 157, 132, 0.05);
+            border-radius: 25px;
+            border: 1px dashed var(--primary-gold);
+            display: inline-block;
+            min-width: 60%;
+        }
+
+        .motto-highlight {
+            font-size: clamp(22px, 3vw, 28px);
+            font-weight: 900;
+            display: block;
+            margin-bottom: 10px;
+            color: var(--primary-gold);
+        }
+
+        /* 🔷 الفوتر الموحد */
+        footer {
+            background: var(--hf-gradient);
+            color: var(--hf-text);
+            padding: 50px 20px;
+            border-top: 4px solid var(--bright-gold);
+            margin-top: 50px;
+        }
+        footer .footer-logo { width: 80px; margin-bottom: 15px; filter: brightness(1.1); }
+        footer .rights { font-size: 14px; opacity: 0.8; margin: 10px 0; }
+        footer .motto { font-size: 20px; font-weight: bold; margin-top: 10px; }
+
+        /* 📱 استجابة الموبايل */
+        @media (max-width: 768px) {
+            .header-container { flex-direction: row; }
+            .content-card { width: 88%; padding: 30px 20px; }
+            .page-title-en { letter-spacing: 4px; }
+        }
+    </style>
 </head>
-<body>
 
-<header>
-    <img src="Nobles.png" class="logo" alt="شعار المدرسة">
-    <h1>ثانوية النبلاء النموذجية للبنين</h1>
-</header>
+<body id="mainBody">
 
-<div class="page-title">تميمة النبلاء</div>
-<div class="page-title-en">Nobles Talisman</div>
+    <header>
+        <div class="header-container">
+            <img src="Nobles.png" class="logo" alt="Logo">
+            <h1>ثانوية النبلاء النموذجية للبنين</h1>
+        </div>
+    </header>
 
-<div class="video-container">
-    <video controls>
-        <source src="Talisman.mp4" type="video/mp4">
-        المتصفح الخاص بك لا يدعم الفيديو.
-    </video>
-</div>
+    <main>
+        <section class="title-section animate-entry">
+            <h1 class="page-title">تميمة النبلاء</h1>
+            <span class="page-title-en">Nobles Talisman</span>
+        </section>
 
-<div class="text-box">
-    <h2>فكرة التميمة</h2>
-    <p>
-    أصدرت ثانوية النبلاء بخطوة غير مسبوقة وغير مطروقة، تميمة مدرسية وهي فكرة غير متعارف عليها على المستوى التعليمي التربوي.
-    فكرة التميمة تأتي تبعاً لاستخدامها شعاراً للمحافل الأخرى خلال السنة التي أقيم بها المحفل، وهي ذات الفكرة التي أنشأتها ثانوية النبلاء خلال عام 2025/2026 الدراسي الذي أنشأت به تميمة تحمل شعار العام الدراسي وشعار المدرسة وتتغير في كل عام دراسي وتكون فصلية.
-    <br><br>
-    فكرة التميمة للعام الأول من إطلاقها 2025/2026 هي تمثيلاً للنبل والنبلاء فأصبحت التميمة لهذا العام هي نسر يحمل خطوطاً ذهبية مرفرفاً جناحيه. ويأتي هنا شعار النسر دلالة على كونه شعاراً للنبل والتصرفات النبيلة، فالنسر يرتقي فوق الغيم تجنباً للمطر وهذه من تصرفاته الملفتة والتي تعد دلالة للنبل.
-    <br><br>
-    ويأتي هنا اشتقاق ثانوية النبلاء تصرف الطلاب من تصرف النسر حيث أن الارتقاء بأنواعه هو دلالة نبيلة سواء الارتقاء فوق المطر أو الارتقاء فوق الجهل، وجاء من هنا شعار التميمة.
-    <br><br>
-    <strong>"النبلاء دوماً يرتقون عالياً"</strong><br>
-    فكرة وإنتاج وتصميم الطالب: عمار جاسم محمد
-    </p>
-</div>
+        <section class="video-wrapper animate-entry">
+            <video controls poster="Nobles.png">
+                <source src="Talisman.mp4" type="video/mp4">
+                المتصفح لا يدعم عرض الفيديو.
+            </video>
+        </section>
 
-<footer>
-    <img src="Nobles.png" class="footer-logo" alt="شعار المدرسة">
-    <p class="rights-text">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
-    <p class="motto-text">بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
-</footer>
+        <article class="content-card animate-entry">
+            <h2>فكرة التميمة</h2>
+            <p>
+                أصدرت ثانوية النبلاء بخطوة غير مسبوقة، <span class="highlight-text">تميمة مدرسية</span> وهي فكرة مبتكرة تهدف إلى خلق هوية بصرية وروحية للمحافل التربوية والتعليمية. 
+            </p>
+            <p>
+                تأتي التميمة لتكون الرمز الرسمي للعام الدراسي، حيث تتغير ملامحها سنوياً لتعبر عن تطلعات المدرسة ورؤيتها المتجددة. 
+                في عامها الأول <span class="highlight-text">2025/2026</span>، تم اختيار <span class="highlight-text">النسر</span> ليكون تميمة النبلاء.
+            </p>
+            <p>
+                النسر الذي يرفرف بجناحيه حاملاً خطوطاً ذهبية، يجسد أرقى معاني السمو؛ فهو الطائر الذي يرتقي فوق الغيوم ليتجنب المطر، تماماً كما يرتقي طالب النبلاء فوق المصاعب والجهل.
+            </p>
+            
+            <div class="author-box">
+                <span class="motto-highlight">"النبلاء دوماً يرتقون عالياً"</span>
+                <span style="font-size: 16px; color: var(--text-sub); font-weight: 600;">فكرة وإنتاج وتصميم الطالب: عمار جاسم محمد</span>
+            </div>
+        </article>
+    </main>
 
+    <footer>
+        <img src="Nobles.png" class="footer-logo">
+        <p class="rights">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
+        <p class="motto">بالعلم ونبل الأخلاق نرتقي <b>سلم المجد</b></p>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.getElementById('mainBody').classList.add('dark-mode');
+            }
+        };
+    </script>
 </body>
 </html>

@@ -2,206 +2,177 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>دليل الأزياء - ثانوية النبلاء</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل الأزياء | ثانوية النبلاء</title>
 
 <style>
-/* ⚙️ إعدادات التحكم المنفصلة (الأغلفة والصور) كما هي */
+/* ⚙️ المتغيرات الموحدة */
 :root {
-    /* --- الجانب الأيمن (زي المتوسطة) --- */
-    --right-wrapper-width: 485px;  
-    --right-wrapper-height: 800px; 
-    --right-image-scale: 1.0;      
+    --primary-color: #bb9d84;
+    --bg-light: #f4f6f8;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --gold-line: #d4af37;
+    
+    --hf-bg: linear-gradient(135deg, #bb9d84 0%, #a68b73 100%);
+    --hf-text: #ffffff;
 
-    /* --- الجانب الأيسر (زي الإعدادية) --- */
-    --left-wrapper-width: 485px;   
-    --left-wrapper-height: 800px;  
-    --left-image-scale: 1.0;       
+    /* إعدادات الصور */
+    --wrapper-width: 420px;  
+    --wrapper-height: 700px;
 }
 
-/* 👈 الأساسيات */
+/* 🌙 الوضع الليلي الملكي */
+body.dark-mode {
+    --bg-light: #0a0a0a;
+    --card-bg: #161616;
+    --text-color: #e0e0e0;
+    --hf-bg: radial-gradient(circle at center, #1c1c1c 0%, #000000 100%);
+    --hf-text: #bb9d84; 
+}
+
 body {
     margin: 0;
-    font-family: 'Times New Roman', serif;
-    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-color);
     text-align: center;
-    background-color: #f4f4f4;
+    transition: all 0.4s ease;
 }
 
-/* 🔷 الهيدر */
+/* 🔷 الهيدر الموحد */
 header {
-    background: #bb9d84;
-    color: white;
-    padding: 20px;
-    position: relative;
+    background: var(--hf-bg);
+    color: var(--hf-text);
+    padding: 20px 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-header img.logo {
-    width: 350px;
-    height: auto;
-}
-
-header h1 {
-    font-size: 35px;
-    margin: 10px 0 5px 0;
-    font-weight: bold;
-}
-
-/* 🔹 عنوان دليل الأزياء */
-.guide-title {
-    font-size: 45px;
-    color: #333;
-    margin: 40px 0 20px 0;
-    font-weight: bold;
-    text-decoration: underline #bb9d84;
-    display: block;
-}
-
-/* 🔹 القائمة المنسدلة */
-.menu-btn {
-    font-size: 40px;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    user-select: none;
-}
-
-.fullscreen-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(187,157,132,0.9);
-    z-index: 1000;
     justify-content: center;
     align-items: center;
+    border-bottom: 3px solid var(--gold-line);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
-.menu-box {
-    background-color: #ffffff;
-    border-radius: 15px;
-    padding: 20px 40px;
+.header-container {
     display: flex;
-    flex-direction: column;
-    min-width: 250px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    align-items: center;
+    gap: 15px;
 }
 
-.fullscreen-menu a {
-    font-size: 25px;
-    color: #000000;
-    text-decoration: none;
-    margin: 10px 0;
-    font-weight: bold;
+header img.logo { 
+    width: 100px; 
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
 }
 
-/* 👔 قسم عرض الأزياء */
+header h1 { font-size: clamp(18px, 5vw, 28px); margin: 0; font-weight: 800; }
+
+/* 🔹 عنوان الصفحة */
+.guide-title {
+    font-size: clamp(30px, 8vw, 50px);
+    font-weight: 900;
+    margin: 50px 0 10px 0;
+    color: var(--primary-color);
+}
+body.dark-mode .guide-title { color: #ffffff; }
+
+/* 👔 حاوية عرض الأزياء */
 .fashion-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 60px;
+    gap: 50px;
     padding: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .fashion-card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 0.4s ease;
 }
 
-.right-wrapper, .left-wrapper {
-    border-radius: 25px;
+.img-wrapper {
+    width: var(--wrapper-width);
+    height: var(--wrapper-height);
+    border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    border: 4px solid #bb9d84;
-    background-color: #fff;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    border: 3px solid var(--gold-line);
+    background-color: var(--card-bg);
     position: relative;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.right-wrapper { width: var(--right-wrapper-width); height: var(--right-wrapper-height); }
-.left-wrapper { width: var(--left-wrapper-width); height: var(--left-wrapper-height); }
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: 0.5s;
+}
 
-.right-wrapper img { width: 100%; height: 100%; object-fit: contain; transform: scale(var(--right-image-scale)); }
-.left-wrapper img { width: 100%; height: 100%; object-fit: contain; transform: scale(var(--left-image-scale)); }
+.fashion-card:hover .img-wrapper {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.fashion-card:hover img {
+    transform: scale(1.05);
+}
 
 .uniform-label {
-    margin-top: 20px;
-    font-size: 32px;
-    font-weight: bold;
-    color: #bb9d84;
-    background: white;
-    padding: 5px 30px;
+    margin-top: 25px;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--hf-text);
+    background: var(--hf-bg);
+    padding: 10px 40px;
     border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 2px solid var(--gold-line);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* 🔷 الفوتر المطور (اللون الثابت الموحد) */
+/* 🔷 الفوتر الموحد */
 footer {
-    background: #bb9d84;
-    color: white;
-    padding: 40px 20px;
-    margin-top: 80px;
-    border-top: 5px solid #a68b73;
+    background: var(--hf-bg);
+    color: var(--hf-text);
+    padding: 50px 20px;
+    border-top: 4px solid var(--gold-line);
 }
+footer .footer-logo { width: 80px; margin-bottom: 15px; filter: brightness(1.1); }
+footer .rights-text { font-size: 16px; opacity: 0.8; margin: 10px 0; }
+footer .motto-text { font-size: 22px; font-weight: bold; margin-top: 10px; }
 
-footer .footer-logo {
-    width: 80px;
-    margin-bottom: 15px;
-}
-
-footer .rights-text {
-    font-size: 18px;
-    margin: 10px 0;
-    opacity: 0.9;
-}
-
-footer .motto-text {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 10px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+/* 📱 استجابة الموبايل */
+@media (max-width: 600px) {
+    .img-wrapper { width: 85vw; height: 450px; }
+    .header-container { flex-direction: column; gap: 8px; }
+    .guide-title { font-size: 35px; }
 }
 </style>
 </head>
 
-<body>
+<body id="body">
 
 <header>
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <img src="Nobles.png" class="logo">
-    <h1>ثانوية النبلاء النموذجية للبنين</h1>
+    <div class="header-container">
+        <img src="Nobles.png" class="logo">
+        <h1>ثانوية النبلاء النموذجية للبنين</h1>
+    </div>
 </header>
 
-<div class="guide-title">دليل الازياء</div>
-
-<div class="fullscreen-menu" id="fullscreenMenu">
-    <div class="menu-box">
-        <div style="cursor:pointer; font-size:40px; align-self:flex-start;" onclick="toggleMenu()">×</div>
-        <a href="index.html">الرئيسية</a>
-        <a href="school.html">ثانويتنا</a>
-        <a href="newspaper.html">جريدة النبلاء</a>
-        <a href="fashion.html">أزياء النبلاء</a>
-    </div>
-</div>
+<div class="guide-title">دليل الأزياء</div>
 
 <div class="fashion-container">
     <div class="fashion-card">
-        <div class="right-wrapper">
+        <div class="img-wrapper">
             <img src="Fashion2.png" alt="زي المتوسطة">
         </div>
         <div class="uniform-label">زي المتوسطة</div>
     </div>
 
     <div class="fashion-card">
-        <div class="left-wrapper">
+        <div class="img-wrapper">
             <img src="Fashion.png" alt="زي الإعدادية">
         </div>
         <div class="uniform-label">زي الإعدادية</div>
@@ -209,16 +180,18 @@ footer .motto-text {
 </div>
 
 <footer>
-    <img src="Nobles.png" class="footer-logo" alt="شعار المدرسة">
+    <img src="Nobles.png" class="footer-logo">
     <p class="rights-text">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
-    <p class="motto-text">بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
+    <p class="motto-text">بالعلم ونبل الأخلاق نرتقي <b>سلم المجد</b></p>
 </footer>
 
 <script>
-function toggleMenu() {
-    const menu = document.getElementById("fullscreenMenu");
-    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-}
+// 👈 مزامنة الوضع الليلي تلقائياً مع الصفحة الرئيسية
+window.onload = function() {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.getElementById('body').classList.add('dark-mode');
+    }
+};
 </script>
 
 </body>

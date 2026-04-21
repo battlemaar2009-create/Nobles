@@ -2,149 +2,190 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>عنوان النبلاء - ثانوية النبلاء</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عنوان النبلاء | ثانوية النبلاء</title>
 
 <style>
-/* 👈 الأساسيات */
+/* ⚙️ المتغيرات الموحدة */
+:root {
+    --primary-color: #bb9d84;
+    --hover-color: #a68b73;
+    --bg-light: #f4f6f8;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --gold-line: #d4af37;
+    --hf-bg: linear-gradient(135deg, #bb9d84 0%, #a68b73 100%);
+    --hf-text: #ffffff;
+    /* لون النص التوضيحي في الوضع العادي */
+    --qr-label-color: #bb9d84; 
+}
+
+/* 🌙 الوضع الليلي الملكي */
+body.dark-mode {
+    --bg-light: #0a0a0a;
+    --card-bg: #161616;
+    --text-color: #e0e0e0;
+    --hf-bg: radial-gradient(circle at center, #1c1c1c 0%, #000000 100%);
+    --hf-text: #bb9d84; 
+    /* لون النص التوضيحي في الوضع الليلي */
+    --qr-label-color: #ffffff; 
+}
+
+/* ✨ تعريف الأنيميشن */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseBorder {
+    0% { border-color: var(--primary-color); box-shadow: 0 0 0 0 rgba(187, 157, 132, 0.4); }
+    70% { border-color: var(--gold-line); box-shadow: 0 0 0 15px rgba(187, 157, 132, 0); }
+    100% { border-color: var(--primary-color); box-shadow: 0 0 0 0 rgba(187, 157, 132, 0); }
+}
+
+.animate-fade {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
 body {
     margin: 0;
-    font-family: 'Times New Roman', serif;
-    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-color);
     text-align: center;
-    background-color: #f4f4f4;
-    line-height: 1.6;
+    transition: all 0.4s ease;
+    overflow-x: hidden;
 }
 
-/* 🔷 الهيدر (الموحد) */
+/* 🔷 الهيدر الموحد (بدون أزرار) */
 header {
-    background: #bb9d84;
-    color: white;
-    padding: 20px;
-    position: relative;
+    background: var(--hf-bg);
+    color: var(--hf-text);
+    padding: 15px 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    border-bottom: 2px solid var(--gold-line);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-header img.logo {
-    width: 350px;
-    height: auto;
-}
+.header-container { display: flex; align-items: center; gap: 15px; }
+header img.logo { width: 90px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2)); }
+header h1 { font-size: clamp(16px, 4vw, 26px); margin: 0; font-weight: 800; }
 
-header h1 {
-    font-size: 35px;
-    margin: 10px 0 0 0;
-    font-weight: bold;
-}
-
-/* 📍 قسم العنوان والـ QR */
+/* 📍 حاوية العنوان */
 .address-container {
-    max-width: 900px;
+    max-width: 800px;
     margin: 60px auto;
-    padding: 40px 20px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border-top: 10px solid #bb9d84;
+    padding: 50px 20px;
+    background: var(--card-bg);
+    border-radius: 40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    border: 1px solid rgba(187, 157, 132, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.address-container::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; left: 0;
+    height: 8px;
+    background: var(--primary-color);
 }
 
 .location-text {
-    font-size: 40px;
-    font-weight: bold;
-    color: #333;
+    font-size: clamp(22px, 5vw, 34px);
+    font-weight: 900;
+    color: var(--primary-color);
     margin-bottom: 40px;
-    padding: 10px;
-    border-bottom: 2px dashed #bb9d84;
-    display: inline-block;
+    display: block;
 }
 
 /* 🔳 إطار الـ QR Code */
-.qr-section {
-    margin: 20px 0;
-}
-
 .qr-box {
     width: 280px;
     height: 280px;
     margin: 0 auto;
     padding: 15px;
-    border: 3px solid #bb9d84;
-    border-radius: 15px;
-    background: #fff;
+    border: 4px double var(--primary-color);
+    border-radius: 25px;
+    background: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    animation: pulseBorder 2s infinite; /* تأثير النبض */
 }
 
-.qr-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+.qr-box img { width: 100%; height: 100%; object-fit: contain; }
+
+.qr-label { 
+    margin-top: 25px; 
+    font-size: 18px; 
+    font-weight: 600; 
+    color: var(--qr-label-color); /* اللون المتغير */
+    transition: color 0.4s ease;
 }
 
-.qr-label {
-    margin-top: 15px;
-    font-size: 22px;
-    color: #bb9d84;
-    font-weight: bold;
-}
-
-/* 🔷 الفوتر المطور (الموحد) */
+/* 🔷 الفوتر الموحد */
 footer {
-    background: #bb9d84;
-    color: white;
-    padding: 40px 20px;
-    margin-top: 100px;
-    border-top: 5px solid #a68b73;
+    background: var(--hf-bg);
+    color: var(--hf-text);
+    padding: 50px 20px;
+    border-top: 4px solid var(--gold-line);
+    margin-top: 50px;
 }
+footer .footer-logo { width: 80px; margin-bottom: 15px; filter: brightness(1.1); }
+footer .rights-text { font-size: 14px; opacity: 0.8; margin: 10px 0; }
+footer .motto-text { font-size: 20px; font-weight: bold; margin-top: 10px; }
 
-footer .footer-logo {
-    width: 80px;
-    margin-bottom: 15px;
-    display: block;
-    margin: 0 auto;
-}
-
-footer .rights-text {
-    font-size: 18px;
-    margin: 10px 0;
-    opacity: 0.9;
-}
-
-footer .motto-text {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 10px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+@media (max-width: 600px) {
+    .qr-box { width: 220px; height: 220px; }
+    .address-container { width: 90%; margin: 30px auto; padding: 30px 15px; }
 }
 </style>
 </head>
-<body>
+
+<body id="body">
 
 <header>
-    <img src="Nobles.png" class="logo" alt="شعار المدرسة">
-    <h1>ثانوية النبلاء النموذجية للبنين</h1>
+    <div class="header-container">
+        <img src="Nobles.png" class="logo" alt="Logo">
+        <h1>ثانوية النبلاء النموذجية للبنين</h1>
+    </div>
 </header>
 
-<div class="address-container">
-    <div class="location-text">
+<div class="address-container animate-fade" style="animation-delay: 0.2s;">
+    <div class="location-text animate-fade" style="animation-delay: 0.4s;">
         📍 بغداد - مدينة الصدر - شارع الداخل
     </div>
 
     <div class="qr-section">
         <div class="qr-box">
-            <img src="Nonles School.png" alt="QR Code العنوان">
+            <img src="Nonles School.png" alt="QR Code الموقع الجغرافي">
         </div>
-        <div class="qr-label">امسح الكود للحصول على الموقع الجغرافي لثانوية النبلاء</div>
+        <div class="qr-label animate-fade" style="animation-delay: 0.6s;">
+            امسح الكود أعلاه للحصول على الموقع الجغرافي لثانوية النبلاء
+        </div>
     </div>
 </div>
 
 <footer>
-    <img src="Nobles.png" class="footer-logo" alt="شعار المدرسة">
+    <img src="Nobles.png" class="footer-logo">
     <p class="rights-text">جميع الحقوق محفوظة لأعلام ثانوية النبلاء النموذجية للبنين</p>
-    <p class="motto-text">بالعلم ونبل الأخلاق نرتقي سلم المجد</p>
+    <p class="motto-text">بالعلم ونبل الأخلاق نرتقي <b>سلم المجد</b></p>
 </footer>
+
+<script>
+// مزامنة الوضع الليلي تلقائياً
+window.onload = function() {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.getElementById('body').classList.add('dark-mode');
+    }
+};
+</script>
 
 </body>
 </html>
